@@ -1,0 +1,26 @@
+
+# file itself
+#.gitignore
+
+# network
+.nfs*
+
+# c
+*.o
+*.a
+*.so
+
+# vim session
+.*.vs
+
+# swap files
+.*.swp
+
+# additional
+**/.netrwhist
+
+# vim plugins
+.vim/bundle
+
+
+
