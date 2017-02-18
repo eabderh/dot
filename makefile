@@ -7,3 +7,8 @@ link:
 room:
 	./room.sh ~
 
+
+setup:
+	git submodule --init
+
+
