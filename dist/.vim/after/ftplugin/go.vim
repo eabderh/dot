@@ -1,0 +1,4 @@
+
+inoremap " '
+inoremap ' "
+
