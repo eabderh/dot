@@ -1,0 +1,46 @@
+
+session_name: james
+windows:
+- window_name: couchdb
+  panes:
+  - cd ~/couchdb/apache-couchdb-1.6.1/bin
+- window_name: app
+  layout: even-vertical
+  panes:
+  - shell_command:
+    - cdd ~/james
+    - gs
+  - cdd ~/james
+- window_name: assets
+  layout: tiled
+  panes:
+  - cdd ~/james/webinterface/assets/src/views
+  - cdd ~/james/webinterface/assets/src/scripts
+  - cdd ~/james/webinterface/assets/src/styles
+  - cdd ~/james/webinterface/assets
+
+#session_name: james
+#windows:
+#- window_name: app
+#  layout: even-vertical
+#  panes:
+#  - cd ~/dev/james/interface
+#  - cd ~/dev/james/interface/src/app
+#- window_name: assets
+#  layout: tiled
+#  panes:
+#  - cd ~/dev/james/interface/src/views
+#  - cd ~/dev/james/interface/src/assets/js
+#  - cd ~/dev/james/interface/src/assets/styles
+#  - cd ~/dev/james/interface
+#- window_name: couchdb
+#  panes:
+#  - cd ~/couchdb/apache-couchdb-1.6.1/bin
+
+
+
+
+
+
+
+

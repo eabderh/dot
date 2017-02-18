@@ -1,0 +1,12 @@
+
+session_name: dotfiles
+windows:
+- window_name: files
+  layout: even-vertical
+  panes:
+  - shell_command:
+    - cd ~/dev/dotfiles
+    - gs
+  - cd ~/dev/dotfiles
+
+

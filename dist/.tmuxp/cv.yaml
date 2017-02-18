@@ -1,0 +1,18 @@
+
+session_name: cv
+windows:
+- window_name: cv
+  layout: even-vertical
+  panes:
+  - shell_command:
+    - cd ~/dev/cv
+    - gs
+  - cd ~/dev/cv
+- window_name: resume
+  layout: even-vertical
+  panes:
+  - shell_command:
+    - cd ~/dev/cv/resume
+    - vim *.tex
+
+
