@@ -20,7 +20,7 @@
 **/.netrwhist
 
 # vim plugins
-.vim/bundle
+**/.vim/bundle
 
 
 
