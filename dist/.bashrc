@@ -97,6 +97,16 @@ alias gche='git checkout'
 alias gdif='git diff'
 alias glog='git log --oneline'
 alias ghis='git log --oneline --graph --all --decorate --abbrev-commit'
+function gist() {
+	if [ -z "$1" ]; then
+		git diff --stat HEAD HEAD~
+	elif [ -z "$2" ]; then
+		git diff --stat HEAD HEAD~$1
+	else
+		git diff --stat HEAD~$1 HEAD~$2
+	fi
+}
+alias gist='gist'
 
 
 # vim
