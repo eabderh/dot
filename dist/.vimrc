@@ -396,7 +396,6 @@ set cmdheight=2
 
 "Python
 set path+=~/dev/python/lib
-highlight NormalBold ctermfg=254 ctermbg=234 cterm=bold
 
 
 

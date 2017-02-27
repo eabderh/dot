@@ -87,6 +87,7 @@ let s:gb = {}
 
 " fill it with absolute colors
 let s:gb.dark0_hard  = ['#1d2021', 234]     " 29-32-33
+"let s:gb.dark0       = ['#282828', 234]     " 40-40-40
 let s:gb.dark0       = ['#282828', 235]     " 40-40-40
 let s:gb.dark0_soft  = ['#32302f', 236]     " 50-48-47
 let s:gb.dark1       = ['#3c3836', 237]     " 60-56-54
@@ -1238,6 +1239,12 @@ function! GruvboxHlsHideCursor()
   call s:HL('Cursor', s:none, s:none, s:inverse)
 endfunction
 
+" }}}
+
+
+" Additional ------------------------------------------------------------------
+" Search Highlighting Cursor {{{
+call s:HL('NormalBold', s:fg1, s:none, s:bold)
 " }}}
 
 " vim: set sw=2 ts=2 sts=2 et tw=80 ft=vim fdm=marker:
