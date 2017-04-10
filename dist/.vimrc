@@ -398,5 +398,7 @@ set cmdheight=2
 set path+=~/dev/python/lib
 
 
+"Golang
+set path+=~/dev/james/go/src
 
 
