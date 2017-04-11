@@ -36,9 +36,8 @@ export PYTHONSTARTUP=$HOME/.pythonstartup.py
 
 # golang
 export PATH=$PATH:/usr/local/go/bin
-JAMES=$HOME/dev/james
-export GOPATH=$JAMES/go
-export PATH=$PATH:$JAMES/go/bin
+export GOPATH=$HOME/james/go
+export PATH=$PATH:$GOPATH/bin
 
 # ALIASES ---------------------------------------------------------------------
 
