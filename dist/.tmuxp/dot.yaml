@@ -7,6 +7,6 @@ windows:
   - shell_command:
     - cd ~/dev/dot
     - gs
-  - cd ~/dev/dot
+  - cd ~/dev/dot/dist
 
 
