@@ -124,6 +124,11 @@ alias trees='tree -d -L'
 #alias go='export GOPATH=$GOPATH:$PWD'
 
 
+# du
+alias dui='du -sh *'
+
+
+
 # LS COLORS -------------------------------------------------------------------
 
 # change colors of ls output
