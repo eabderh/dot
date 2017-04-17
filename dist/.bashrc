@@ -125,7 +125,7 @@ alias trees='tree -d -L'
 
 
 # du
-alias dui='du --max-depth=1 | sort -hr'
+alias dui='du --max-depth=1 -h | sort -hr'
 
 
 
