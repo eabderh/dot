@@ -7,17 +7,15 @@ windows:
 - window_name: app
   layout: even-vertical
   panes:
-  - shell_command:
-    - cdd ~/james
-    - gs
-  - cdd ~/james
+  - cd ~/james/go/src/code.james-solutions.ch/james
+  - cd ~/james/go/src/code.james-solutions.ch/james
 - window_name: assets
   layout: tiled
   panes:
-  - cdd ~/james/webinterface/assets/src/views
-  - cdd ~/james/webinterface/assets/src/scripts
-  - cdd ~/james/webinterface/assets/src/styles
-  - cdd ~/james/webinterface/assets
+  - cd ~/james/go/src/code.james-solutions.ch/james/webinterface/assets/src/views
+  - cd ~/james/go/wesrc/code.james-solutions.ch/james/webinterface/assets/src/scripts 
+  - cd ~/james/go/wesrc/code.james-solutions.ch/james/webinterface/assets/src/styles
+  - cd ~/james/go/wesrc/code.james-solutions.ch/james/webinterface/assets
 
 #session_name: james
 #windows:
