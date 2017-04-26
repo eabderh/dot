@@ -9,6 +9,10 @@ windows:
 - window_name: ssh
   layout: even-horizontal
   panes:
-  - cd ~/james/go/src/code.james-solutions.ch/go/james/engine
-  - cd ~/james/go/src/code.james-solutions.ch/go/james/engine
+  - shell_command:
+    - cd ~/james/go/src/code.james-solutions.ch/go/james/engine
+    - ssh pi
+  - shell_command:
+    - cd ~/james/go/src/code.james-solutions.ch/go/james/engine
+    - ssh pi
 
