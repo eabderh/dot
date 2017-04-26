@@ -1,5 +1,5 @@
 
-session_name: james
+session_name: james0
 windows:
 - window_name: couchdb
   panes:
