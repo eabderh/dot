@@ -9,6 +9,6 @@ room:
 
 
 setup:
-	git submodule --init
+	git submodule init
 
 
