@@ -94,6 +94,10 @@ alias gche='git checkout'
 alias gdif='git diff'
 alias glog='git log --oneline'
 alias ghis='git log --oneline --graph --all --decorate --abbrev-commit'
+alias gpsh='git push'
+alias gpu='git pull'
+# git gross - add, commit, push (named so because it isn't the best shortcut)
+alias gross='git add . ; git commit ; git push'
 function gist() {
 	if [ -z "$1" ]; then
 		git diff --stat HEAD HEAD~
