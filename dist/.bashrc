@@ -113,6 +113,7 @@ alias gist='gist'
 # vim
 alias vimf='vim $(find . -maxdepth 1 -exec file {} + '\
 '| grep text | cut -d: -f1)'
+alias vimt='vim *.'
 
 
 # python
