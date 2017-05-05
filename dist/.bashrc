@@ -42,6 +42,10 @@ export PATH=$PATH:$GOPATH/bin
 # ALIASES ---------------------------------------------------------------------
 
 
+# bash
+alias resrc='source ~/.bashrc'
+
+
 # ls commands
 alias ls="/bin/ls --color=auto \
 	--group-directories-first --sort=extension"
