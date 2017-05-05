@@ -9,7 +9,7 @@
 
 # SYSTEM ----------------------------------------------------------------------
 
-pushpath() {
+function pushpath() {
 	case ":$PATH:" in
 		*":$1:"* 	) :;; # already in path
 		* 			) export PATH="$PATH:$1";;
@@ -78,14 +78,14 @@ alias cd.='cd_up'
 
 # tmux
 alias tm='tmux -2 -u'
-function tmux_attach() {
+function tma() {
 	if [ -z "$1" ]; then
 		tmux attach
 	else
 		tmux attach-session -t $1
 	fi
 }
-alias tma='tmux_attach'
+#alias tma='tmux_attach'
 alias tmo='tmux attach-session #'
 alias tms='tmux new -s'
 alias tmls='tmux list-sessions'
@@ -109,7 +109,7 @@ alias gpsh='git push'
 alias gpu='git pull'
 # git gross - add, commit, push (named so because it isn't the best shortcut)
 alias gross='git add . ; git commit ; git push'
-gist() {
+function gist() {
 	if [ -z "$1" ]; then
 		git diff --stat HEAD HEAD~
 	elif [ -z "$2" ]; then
@@ -123,7 +123,7 @@ gist() {
 # vim
 alias vimf='vim $(find . -maxdepth 1 -exec file {} + '\
 '| grep text | cut -d: -f1)'
-vimt() {
+function vimt() {
 	vim *.$1
 }
 
