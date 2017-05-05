@@ -42,8 +42,8 @@ export PYTHONSTARTUP=$HOME/.pythonstartup.py
 
 # golang
 pushpath /usr/local/go/bin
-export GOPATH=$HOME/james/go
 pushpath $GOPATH/bin
+export GOPATH=$HOME/james/go
 
 
 # ALIASES ---------------------------------------------------------------------
@@ -85,7 +85,6 @@ function tma() {
 		tmux attach-session -t $1
 	fi
 }
-#alias tma='tmux_attach'
 alias tmo='tmux attach-session #'
 alias tms='tmux new -s'
 alias tmls='tmux list-sessions'
