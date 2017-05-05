@@ -9,9 +9,15 @@
 
 # SYSTEM ----------------------------------------------------------------------
 
+pushpath() {
+	case ":$PATH:" in
+		*":$1:"* 	) :;; # already in path
+		* 			) export PATH="$PATH:$1";;
+	esac
+}
+
 # os
-export PATH=${PATH}:~/.local/bin
-export PATH=${PATH}:~/dev/userbin
+pushpath ~/.local/bin
 
 # editor
 export EDITOR=vim;
@@ -35,9 +41,10 @@ export PYTHONPATH=$HOME/dev/python/lib
 export PYTHONSTARTUP=$HOME/.pythonstartup.py
 
 # golang
-export PATH=$PATH:/usr/local/go/bin
+pushpath /usr/local/go/bin
 export GOPATH=$HOME/james/go
-export PATH=$PATH:$GOPATH/bin
+pushpath $GOPATH/bin
+
 
 # ALIASES ---------------------------------------------------------------------
 
@@ -138,7 +145,6 @@ alias trees='tree -d -L'
 alias dui='du --max-depth=1 -h | sort -hr'
 
 
-
 # LS COLORS -------------------------------------------------------------------
 
 # change colors of ls output
@@ -169,9 +175,13 @@ change_ls_color "*.7z" "01;31"
 
 export LS_COLORS
 
-# remove function change_ls_color to make it only local
-unset -f change_ls_color
 
+
+# UNSET FUNCTIONS -------------------------------------------------------------
+
+# remove functions to allow them only in this local bash shell
+unset -f change_ls_color
+unset -f pushpath
 
 
 # BINDS -----------------------------------------------------------------------
