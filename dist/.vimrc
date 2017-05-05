@@ -22,22 +22,30 @@ set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 	" installs and updates plugins
-Plugin 'tpope/vim-obsession'
-	" makes and maintains sessions
+
+" application plugins
 Plugin 'ervandew/supertab'
 	" autocomplete
+Plugin 'thinca/vim-visualstar'
+	" star what is highlighted in visual mode
 Plugin 'Shougo/unite.vim'
 	" find files
-Plugin 'tomasr/molokai'
-	" color theme
+Plugin 'tpope/vim-capslock'
+	" software capslock
+Plugin 'embear/vim-localvimrc'
+	" local vimrc files
+Plugin 'ton/vim-bufsurf'
+	" fix buffer ordering
 Plugin 'bling/vim-bufferline'
 	" line at bottom showing open buffers
-Plugin 'ntpeters/vim-better-whitespace'
-	" shows whitespace
-Plugin 'tpope/vim-fugitive'
-	" git wrapper
-Plugin 'junegunn/vim-easy-align'
-	" alignment
+
+" colorscheme plugins
+Plugin 'morhetz/gruvbox'
+	" color theme
+Plugin 'tomasr/molokai'
+	" color theme
+
+" filetype plugins
 Plugin 'digitaltoad/vim-pug'
 	" jade (pug) vim filetype
 Plugin 'hail2u/vim-css3-syntax.git'
@@ -46,22 +54,20 @@ Plugin 'cakebaker/scss-syntax.vim'
 	" sass filetype
 Plugin 'kchmck/vim-coffee-script'
 	" coffeescript filetype
-Plugin 'tpope/vim-capslock'
-	" software capslock
-Plugin 'ton/vim-bufsurf'
-	" fix buffer ordering
 Plugin 'nikvdp/ejs-syntax'
 	" ejs filetype
-Plugin 'embear/vim-localvimrc'
-	" local vimrc files
-Plugin 'thinca/vim-visualstar'
-	" star what is highlighted in visual mode
-Plugin 'morhetz/gruvbox'
-	" color theme
 
+" unused plugins
+"Plugin 'ntpeters/vim-better-whitespace'
+	" shows whitespace
+"Plugin 'tpope/vim-fugitive'
+	" git wrapper
+"Plugin 'junegunn/vim-easy-align'
+	" alignment
 "Plugin 'jlanzarotta/bufexplorer'
 	" bufexplorer
-
+"Plugin 'tpope/vim-obsession'
+	" makes and maintains sessions
 
 " not quite working...
 "Plugin 'bling/vim-airline'
@@ -101,7 +107,9 @@ let g:SuperTabNoCompleteAfter = [ '^', '\s', '"',
 
 
 "[*.*.*] vim-better-whitespace
-autocmd VimEnter,Colorscheme * :hi ExtraWhitespace ctermbg=236
+highlight ExtraWhitespace ctermbg=236
+highlight ExtraWhitespace ctermfg=239
+let g:current_line_whitespace_disabled_soft = 1
 nnoremap <silent> <leader>x :ToggleWhitespace<CR>
 
 
@@ -123,23 +131,23 @@ nnoremap <silent> <leader>x :ToggleWhitespace<CR>
 
 "[*.*.*] vim-easy-align
 "vnoremap mi <Plug>(EasyAlign)
-xmap <leader>i <Plug>(EasyAlign)
-let g:easy_align_delimiters = {
-\  ' ': { 'pattern': ' ',  'left_margin': 0, 'right_margin': 0, 'stick_to_left': 0 },
-\  '=': { 'pattern': '===\|<=>\|\(&&\|||\|<<\|>>\)=\|=\~[#?]\?\|=>\|[:+/*!%^=><&|.?-]\?=[#?]\?',
-\                          'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 },
-\  ':': { 'pattern': ':',  'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 },
-\  ',': { 'pattern': ',',  'left_margin': 0, 'right_margin': 1, 'stick_to_left': 1 },
-\  '|': { 'pattern': '|',  'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 },
-\  '.': { 'pattern': '\.', 'left_margin': 0, 'right_margin': 0, 'stick_to_left': 0 },
-\  '#': { 'pattern': '#\+', 'delimiter_align': 'l', 'ignore_groups': ['!Comment']  },
-\  '"': { 'pattern': '"\+', 'delimiter_align': 'l', 'ignore_groups': ['!Comment']  },
-\  '&': { 'pattern': '\\\@<!&\|\\\\',
-\                          'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 },
-\  '{': { 'pattern': '(\@<!{',
-\                          'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 },
-\  '}': { 'pattern': '}',  'left_margin': 1, 'right_margin': 0, 'stick_to_left': 0 }
-\ }
+"xmap <leader>i <Plug>(EasyAlign)
+"let g:easy_align_delimiters = {
+"\  ' ': { 'pattern': ' ',  'left_margin': 0, 'right_margin': 0, 'stick_to_left': 0 },
+"\  '=': { 'pattern': '===\|<=>\|\(&&\|||\|<<\|>>\)=\|=\~[#?]\?\|=>\|[:+/*!%^=><&|.?-]\?=[#?]\?',
+"\                          'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 },
+"\  ':': { 'pattern': ':',  'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 },
+"\  ',': { 'pattern': ',',  'left_margin': 0, 'right_margin': 1, 'stick_to_left': 1 },
+"\  '|': { 'pattern': '|',  'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 },
+"\  '.': { 'pattern': '\.', 'left_margin': 0, 'right_margin': 0, 'stick_to_left': 0 },
+"\  '#': { 'pattern': '#\+', 'delimiter_align': 'l', 'ignore_groups': ['!Comment']  },
+"\  '"': { 'pattern': '"\+', 'delimiter_align': 'l', 'ignore_groups': ['!Comment']  },
+"\  '&': { 'pattern': '\\\@<!&\|\\\\',
+"\                          'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 },
+"\  '{': { 'pattern': '(\@<!{',
+"\                          'left_margin': 1, 'right_margin': 1, 'stick_to_left': 0 },
+"\  '}': { 'pattern': '}',  'left_margin': 1, 'right_margin': 0, 'stick_to_left': 0 }
+"\ }
 
 "[*.*.*] vim-capslock
 imap <silent> <C-c> <Plug>CapsLockToggle
