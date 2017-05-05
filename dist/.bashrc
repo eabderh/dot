@@ -98,7 +98,7 @@ alias gpsh='git push'
 alias gpu='git pull'
 # git gross - add, commit, push (named so because it isn't the best shortcut)
 alias gross='git add . ; git commit ; git push'
-function gist() {
+gist() {
 	if [ -z "$1" ]; then
 		git diff --stat HEAD HEAD~
 	elif [ -z "$2" ]; then
@@ -107,7 +107,6 @@ function gist() {
 		git diff --stat HEAD~$1 HEAD~$2
 	fi
 }
-alias gist='gist'
 
 
 # vim
