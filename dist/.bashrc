@@ -41,9 +41,9 @@ export PYTHONPATH=$HOME/dev/python/lib
 export PYTHONSTARTUP=$HOME/.pythonstartup.py
 
 # golang
+export GOPATH=$HOME/james/go
 pushpath /usr/local/go/bin
 pushpath $GOPATH/bin
-export GOPATH=$HOME/james/go
 
 
 # ALIASES ---------------------------------------------------------------------
