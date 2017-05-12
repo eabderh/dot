@@ -104,7 +104,7 @@ alias gche='git checkout'
 alias gdif='git diff'
 alias glog='git log --oneline'
 alias ghis='git log --oneline --graph --all --decorate --abbrev-commit'
-alias gpull='git push'
+alias gpsh='git push'
 alias gfe='git fetch'
 #alias gpl='git pull'
 # git gross - add, commit, push (named so because it isn't the best shortcut)
