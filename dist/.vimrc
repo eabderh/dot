@@ -56,6 +56,8 @@ Plugin 'kchmck/vim-coffee-script'
 	" coffeescript filetype
 Plugin 'nikvdp/ejs-syntax'
 	" ejs filetype
+Plugin 'fatih/vim-go'
+	" golang helper
 
 " unused plugins
 "Plugin 'ntpeters/vim-better-whitespace'
