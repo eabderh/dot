@@ -29,7 +29,9 @@ Plugin 'ervandew/supertab'
 Plugin 'thinca/vim-visualstar'
 	" star what is highlighted in visual mode
 Plugin 'Shougo/unite.vim'
-	" find files
+	" file explorer
+Plugin 'Shougo/vimfiler.vim'
+	" replace netrw file explorer with unite.vim plugin
 Plugin 'tpope/vim-capslock'
 	" software capslock
 Plugin 'embear/vim-localvimrc'
@@ -155,13 +157,29 @@ nnoremap <silent> <leader>x :ToggleWhitespace<CR>
 imap <silent> <C-c> <Plug>CapsLockToggle
 nmap <silent> <leader>c <Plug>CapsLockToggle
 
+
 "[*.*.*] bufsurf
 "nnoremap <silent> <leader>f :BufSurfForward<CR>
 "nnoremap <silent> <leader>s :BufSurfBack<CR>
 
+
 "[*.*.*] local vimrc files - vim-localvimrc
 let g:localvimrc_name = [ '.lvimrc', '.local.vimrc' ]
 let g:localvimrc_ask = 0
+
+
+"[*.*.*] vim file explorer (unite.vim , vimfiler.vim)
+let g:vimfiler_as_default_explorer = 1
+call vimfiler#custom#profile('default', 'context', {
+	\ 'safe' : 0,
+	\ 'force_quit' : 1,
+	\ })
+autocmd FileType vimfiler call s:vimfiler_settings()
+function! s:vimfiler_settings()
+	nmap <buffer> q <Plug>(vimfiler_exit)
+	nmap <buffer> Q <Plug>(vimfiler_hide)
+endfunction
+
 
 "[*] colorscheme
 syntax on
@@ -401,6 +419,11 @@ autocmd FileType c setlocal foldmethod=syntax
 
 "[*.*] get rid of latex files 'press enter to continue' messages
 set cmdheight=2
+
+
+"[*.*] netrw
+"let g:netrw_banner=0
+
 
 
 "[*.*] Path
