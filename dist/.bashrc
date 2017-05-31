@@ -45,6 +45,9 @@ export GOPATH=$HOME/james/go
 pushpath /usr/local/go/bin
 pushpath $GOPATH/bin
 
+# rust
+pushpath $HOME/.cargo/bin
+
 
 # ALIASES ---------------------------------------------------------------------
 
