@@ -124,8 +124,8 @@ function gist() {
 
 
 # vim
-alias vimf='vim $(find . -maxdepth 1 -exec file {} + '\
-'| grep text | cut -d: -f1)'
+alias vimf='vim $(find . -maxdepth 1 -exec file -i {} + '\
+'| grep ascii | cut -d: -f1)'
 function vimt() {
 	vim *.$1
 }
