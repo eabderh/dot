@@ -53,7 +53,7 @@ pushpath $HOME/.cargo/bin
 
 
 # bash
-alias resrc='source ~/.bashrc'
+alias dot-bash='source ~/.bashrc'
 
 
 # ls commands
@@ -80,6 +80,7 @@ alias cd.='cd_up'
 
 
 # tmux
+alias dot-tmux='tmux source-file ~/.tmux.conf'
 alias tm='tmux -2 -u'
 function tma() {
 	if [ -z "$1" ]; then
