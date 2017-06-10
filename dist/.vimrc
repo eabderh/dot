@@ -282,7 +282,7 @@ nnoremap wl <C-w>l
 nnoremap we :only<CR>
 
 
-"[*.*] saving mappings (save)
+"[*.*] command mappings (save)
 command -nargs=0 -bar SmartSave if &modified
 	\|	if empty(bufname('%'))
 	\|		browse confirm write
@@ -293,6 +293,7 @@ command -nargs=0 -bar SmartSave if &modified
 
 "inoremap <silent> jw <Esc>:<C-u>SmartSave<CR>i
 "inoremap <silent> jx <Esc>:x<CR>
+nnoremap ;; :
 nnoremap <silent> ;w :<C-u>SmartSave<CR>
 nnoremap <silent> ;x :x<CR>
 nnoremap <silent> ;dd :w<CR>:bd<CR>
