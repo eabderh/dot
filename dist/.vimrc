@@ -426,15 +426,3 @@ set cmdheight=2
 "let g:netrw_banner=0
 
 
-
-"[*.*] Path
-
-"Python
-set path+=~/dev/python/lib
-
-
-"Golang
-set path+=~/james/go/src
-let g:go_highlight_trailing_whitespace_error=0
-
-
