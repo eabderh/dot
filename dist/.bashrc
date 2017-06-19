@@ -42,6 +42,7 @@ export PYTHONPATH=$HOME/dev/python/lib
 export PYTHONSTARTUP=$HOME/.pythonstartup.py
 
 # golang
+export GOROOT=/usr/local/go
 export GOPATH=$HOME/james/go
 pushpath /usr/local/go/bin
 pushpath $GOPATH/bin
