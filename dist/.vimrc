@@ -260,7 +260,7 @@ nnoremap <leader>dd :bd<CR>
 
 "[*.*] editing mappings
 nnoremap t dd
-"nnoremap y yy
+nnoremap y yy
 
 
 "[*.*] folding mappings
