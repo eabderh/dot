@@ -33,6 +33,7 @@ function Movemap_normal()
 	nunmap e
 	nunmap E
 	" visual
+	vunmap t
 	" movment
 	vunmap s
 	vunmap S
@@ -63,6 +64,7 @@ function Movemap_mov()
 	nnoremap e 8k
 	nnoremap E 16k
 	" visual
+	vnoremap t d
 	" movment
 	vnoremap s b
 	vnoremap S 0
