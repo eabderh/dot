@@ -50,6 +50,9 @@ pushpath $GOPATH/bin
 # rust
 pushpath $HOME/.cargo/bin
 
+# aws s3
+export S3BUCKET='bananalias-storage'
+
 
 # ALIASES ---------------------------------------------------------------------
 
