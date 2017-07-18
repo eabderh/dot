@@ -5,6 +5,7 @@
 #	source /etc/bashrc
 #fi
 
+pushpath /usr/local/bin
 
 
 # SYSTEM ----------------------------------------------------------------------
