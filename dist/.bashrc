@@ -5,7 +5,6 @@
 #	source /etc/bashrc
 #fi
 
-pushpath /usr/local/bin
 
 
 # SYSTEM ----------------------------------------------------------------------
@@ -18,6 +17,7 @@ function pushpath() {
 }
 
 # os
+pushpath /usr/local/bin
 pushpath ~/.local/bin
 
 # editor
