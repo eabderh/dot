@@ -28,10 +28,6 @@ Plugin 'ervandew/supertab'
 	" autocomplete
 Plugin 'thinca/vim-visualstar'
 	" star what is highlighted in visual mode
-Plugin 'Shougo/unite.vim'
-	" file explorer
-Plugin 'Shougo/vimfiler.vim'
-	" replace netrw file explorer with unite.vim plugin
 Plugin 'tpope/vim-capslock'
 	" software capslock
 Plugin 'embear/vim-localvimrc'
@@ -40,6 +36,12 @@ Plugin 'ton/vim-bufsurf'
 	" fix buffer ordering
 Plugin 'bling/vim-bufferline'
 	" line at bottom showing open buffers
+
+" file explorer plugins
+Plugin 'Shougo/unite.vim'
+	" file explorer
+Plugin 'Shougo/vimfiler.vim'
+	" replace netrw file explorer with unite.vim plugin
 
 " colorscheme plugins
 Plugin 'morhetz/gruvbox'
@@ -72,6 +74,8 @@ Plugin 'fatih/vim-go'
 	" bufexplorer
 "Plugin 'tpope/vim-obsession'
 	" makes and maintains sessions
+"Plugin 'romgrk/vimfiler-prompt'
+	" add prompt to vimfiler
 
 " not quite working...
 "Plugin 'bling/vim-airline'
@@ -171,11 +175,13 @@ let g:localvimrc_ask = 0
 "[*.*.*] vim file explorer (unite.vim , vimfiler.vim)
 let g:vimfiler_as_default_explorer = 1
 call vimfiler#custom#profile('default', 'context', {
+	\ 'explorer' : 1,
 	\ 'safe' : 0,
 	\ 'force_quit' : 1,
 	\ })
 autocmd FileType vimfiler call s:vimfiler_settings()
 function! s:vimfiler_settings()
+	nmap <buffer> i <Plug>(vimfiler_set_current_mask)
 	nmap <buffer> q <Plug>(vimfiler_exit)
 	nmap <buffer> Q <Plug>(vimfiler_hide)
 endfunction
