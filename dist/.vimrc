@@ -220,6 +220,7 @@ nnoremap <silent> <leader>w :w<CR>
 nnoremap <silent> <leader>x :xa<CR>
 nnoremap <silent> <leader>q :q!<CR>
 nnoremap <silent> <leader>t :bd<CR>
+nnoremap <silent> <leader>e :e<CR>
 "nnoremap  :
 " paragraph maker
 nnoremap <silent> <leader>p gqgq
@@ -276,8 +277,8 @@ nnoremap zr zR
 
 
 "[*.*] windows mapping
-nnoremap <leader>d <C-w>j
-nnoremap <leader>e <C-w>k
+"nnoremap <leader>d <C-w>j
+"nnoremap <leader>e <C-w>k
 "nnoremap <silent> ww :call Togglewindow()<CR>
 nnoremap w; :split<CR>
 nnoremap w' :vsplit<CR>
