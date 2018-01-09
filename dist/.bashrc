@@ -36,7 +36,14 @@ shopt -s histverify
 #export TERM=xterm-256color
 export TERM=screen-256color-s
 export PS1="\[\e[37;1m\][\u@\h] \$(python ~/.pwd.py 2> /dev/null) \$ \[\e[0m\]"
-export HISTCONTROL=ignorespace
+
+# history
+export HISTCONTROL=ignorespace:ignoredups:erasedups
+export HISTSIZE="1000"
+ttyname=$(tty | sed -e 's;/;;g')
+export HISTFILE="${HOME}/.history.d/$ttyname"
+export PROMPT_COMMAND="history -a"
+#export PROMPT_COMMAND="history -a; history -c; history -r;"
 
 # python
 export PYTHONPATH=$HOME/dev/python/lib
