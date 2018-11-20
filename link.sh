@@ -1,5 +1,7 @@
 #/bin/bash
 
+# links all dot files in dist/ to the chosen destination directory
+
 dir="$PWD"
 dest="$1"
 

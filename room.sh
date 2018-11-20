@@ -1,5 +1,7 @@
 #/bin/bash
 
+# moves all existing dot files to a temporary directory
+
 dir="$PWD"
 dest="$1"
 

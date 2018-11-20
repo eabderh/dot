@@ -162,8 +162,13 @@ alias py='python'
 alias pyserve='python -m http.server 6000'
 
 
-# tree
-alias trees='tree -d -L'
+# df
+alias df='df -h'
+
+
+# tmsu
+alias tir='tmsu'
+alias tag='tmsu tag'
 
 
 # go
