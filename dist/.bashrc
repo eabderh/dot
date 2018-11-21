@@ -40,10 +40,14 @@ export PS1="\[\e[37;1m\][\u@\h] \$(python ~/.pwd.py 2> /dev/null) \$ \[\e[0m\]"
 # history
 export HISTCONTROL=ignorespace:ignoredups:erasedups
 export HISTSIZE="1000"
-ttyname=$(tty | sed -e 's;/;;g')
-export HISTFILE="${HOME}/.history.d/$ttyname"
 export PROMPT_COMMAND="history -a"
 #export PROMPT_COMMAND="history -a; history -c; history -r;"
+ttyname=$(tty | sed -e 's;/;;g')
+file="${HOME}/.history.d/$ttyname"
+mkdir -p $(dirname $file) \
+	|| echo 'could not create directory path for history files'
+	#&& touch $file \
+export HISTFILE=$file
 
 # python
 export PYTHONPATH=$HOME/dev/python/lib
