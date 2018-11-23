@@ -50,6 +50,14 @@ mkdir -p $(dirname $file) \
 	#&& touch $file \
 export HISTFILE=$file
 
+# gnupg (gpg)
+TTY=$(tty)
+TTY_owner=$(stat --format "%U" $TTY)
+if [ ! $TTY_owner = $USER ]; then
+	sudo chown $USER:$USER $TTY
+fi
+export GPG_TTY="$TTY"
+
 # python
 export PYTHONPATH=$HOME/dev/python/lib
 export PYTHONSTARTUP=$HOME/.pythonstartup.py
