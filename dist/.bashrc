@@ -63,9 +63,9 @@ export PYTHONPATH=$HOME/dev/python/lib
 export PYTHONSTARTUP=$HOME/.pythonstartup.py
 
 # golang
-export GOROOT=/usr/local/go1.9
+export GOROOT=/usr/local/go1.11
 pushpath $GOROOT/bin
-export GOPATH=$HOME/james/go
+export GOPATH=$HOME/dev/go
 pushpath $GOPATH/bin
 
 # rust
