@@ -74,6 +74,10 @@ pushpath $HOME/.cargo/bin
 # aws s3
 export S3BUCKET='bananalias-storage'
 
+# dh-make (debian)
+export DEBEMAIL="elias@bytekite.io"
+export DEBFULLNAME="Elias Abderhalden"
+
 
 # ALIASES ---------------------------------------------------------------------
 
@@ -86,7 +90,7 @@ alias dot-bash='source ~/.bashrc'
 alias ls="/bin/ls --color=auto \
 	--group-directories-first --sort=extension"
 alias ll="/bin/ls -ao --color=auto \
-	--group-directories-first --sort=extension"
+	--group-directories-first --human-readable --sort=extension"
 # pages ls (scrolling ls)
 alias lsp="/bin/ls -ao --color \
 	--group-directories-first --sort=extension |
@@ -219,6 +223,7 @@ change_ls_color "*.zip" "01;31"
 change_ls_color "*.tar" "01;31"
 change_ls_color "*.tgz" "01;31"
 change_ls_color "*.7z" "01;31"
+change_ls_color "*.deb" "01;31"
 
 export LS_COLORS
 
