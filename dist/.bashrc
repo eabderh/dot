@@ -36,7 +36,8 @@ shopt -s histverify
 #export TERM=xterm-256color
 #export TERM=screen-256color-s
 export TERM=screen-256color
-export PS1="\[\e[37;1m\][\u@\h] \$(python ~/.pwd.py 2> /dev/null) \$ \[\e[0m\]"
+export PS1="\[\e[1;37m\][\u@\h] \$(python ~/.pwd.py 2> /dev/null) \$ \[\e[0m\]"
+#export PS1="\[[\e[01;04;38m\]\u@\h\e[00;01m\]] \$(python ~/.pwd.py 2> /dev/null) \$ \[\e[0;0m\]"
 
 # history
 export HISTCONTROL=ignorespace:ignoredups:erasedups
@@ -198,35 +199,11 @@ alias tag='tmsu tag'
 
 # LS COLORS -------------------------------------------------------------------
 
-# change colors of ls output
-function change_ls_color() {
-if [[ $LS_COLORS == *$1* ]]; then
-	LS_COLORS=$(echo $LS_COLORS | \
-		sed -r "s/(:"$1"=)[^:]*/\1"$2"/")
+if [ -e ~/.dircolors ]; then
+	eval $(dircolors -b ~/.dircolors)
 else
-	LS_COLORS=$LS_COLORS$1=$2:
+    eval $(dircolors -b)
 fi
-}
-
-# directories
-change_ls_color "di" "01;34"
-# executables
-change_ls_color "ex" "01;32"
-# linked
-change_ls_color "ln" "01;36"
-
-change_ls_color "tw" "01;34"
-change_ls_color "ow" "01;34"
-
-# compression files
-change_ls_color "*.zip" "01;31"
-change_ls_color "*.tar" "01;31"
-change_ls_color "*.tgz" "01;31"
-change_ls_color "*.7z" "01;31"
-change_ls_color "*.deb" "01;31"
-
-export LS_COLORS
-
 
 
 # UNSET FUNCTIONS -------------------------------------------------------------
