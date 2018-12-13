@@ -188,6 +188,10 @@ alias df='df -h'
 alias tir='tmsu'
 alias tag='tmsu tag'
 
+# wgnet (wireguard)
+alias net='wgnet'
+
+
 
 # go
 #alias go='export GOPATH=$GOPATH:$PWD'
