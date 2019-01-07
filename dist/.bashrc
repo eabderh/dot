@@ -87,15 +87,65 @@ export DEBFULLNAME="Elias Abderhalden"
 alias dot-bash='source ~/.bashrc'
 
 
+# exa commands
+exabase="exa 	--group-directories-first \
+				--sort=Ext \
+				--color=always"
+exalong="$exabase 	--long \
+					--all \
+					--group \
+					--git \
+					--links \
+					--time-style=iso \
+					--created"
+
+EXA_COLORS=""
+# timestamp
+EXA_COLORS="$EXA_COLORS:da=0;38"
+# timestamp
+EXA_COLORS="$EXA_COLORS:da=0;38"
+# permissions user
+EXA_COLORS="$EXA_COLORS:ur=1;36"
+EXA_COLORS="$EXA_COLORS:uw=1;36"
+EXA_COLORS="$EXA_COLORS:ux=1;36"
+EXA_COLORS="$EXA_COLORS:ue=1;36"
+# permissions user
+EXA_COLORS="$EXA_COLORS:gr=1;32"
+EXA_COLORS="$EXA_COLORS:gw=1;32"
+EXA_COLORS="$EXA_COLORS:gx=1;32"
+# permissions user
+EXA_COLORS="$EXA_COLORS:tr=1;35"
+EXA_COLORS="$EXA_COLORS:tw=1;35"
+EXA_COLORS="$EXA_COLORS:tx=1;35"
+# owners
+EXA_COLORS="$EXA_COLORS:uu=9;36:un=0;35"
+EXA_COLORS="$EXA_COLORS:gu=9;36:gn=0;35"
+# size
+EXA_COLORS="$EXA_COLORS:sn=0;38"
+EXA_COLORS="$EXA_COLORS:sb=0;38"
+# hardlinks
+EXA_COLORS="$EXA_COLORS:lc=1;30" # modified
+# git
+EXA_COLORS="$EXA_COLORS:gm=0;35" # modified
+export EXA_COLORS
+
+
 # ls commands
-alias ls="/bin/ls --color=auto \
-	--group-directories-first --sort=extension"
-alias ll="/bin/ls -ao --color=auto \
-	--group-directories-first --human-readable --sort=extension"
-# pages ls (scrolling ls)
-alias lsp="/bin/ls -ao --color \
-	--group-directories-first --sort=extension |
-	less -r"
+alias ls="$exabase"
+alias ll="$exalong"
+#alias ls="/bin/ls --color=auto \
+#	--group-directories-first --sort=extension"
+#alias ll="/bin/ls -ao --color=auto \
+#	--group-directories-first --human-readable --sort=extension"
+## pages ls (scrolling ls)
+#alias lsp="/bin/ls -ao --color \
+#	--group-directories-first --sort=extension |
+#	less -r"
+
+
+# tree
+alias xee="$exalong --tree"
+alias tree="$exalong --tree"
 
 
 # cd
