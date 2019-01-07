@@ -51,6 +51,9 @@ mkdir -p $(dirname $file) \
 	#&& touch $file \
 export HISTFILE=$file
 
+# less
+export LESS='-R'
+
 # gnupg (gpg)
 TTY=$(tty)
 TTY_owner=$(stat --format "%U" $TTY)
@@ -79,15 +82,7 @@ export S3BUCKET='bananalias-storage'
 export DEBEMAIL="elias@bytekite.io"
 export DEBFULLNAME="Elias Abderhalden"
 
-
-# ALIASES ---------------------------------------------------------------------
-
-
-# bash
-alias dot-bash='source ~/.bashrc'
-
-
-# exa commands
+# exa
 exabase="exa 	--group-directories-first \
 				--sort=Ext \
 				--color=always"
@@ -98,7 +93,6 @@ exalong="$exabase 	--long \
 					--links \
 					--time-style=iso \
 					--created"
-
 EXA_COLORS=""
 # timestamp
 EXA_COLORS="$EXA_COLORS:da=0;38"
@@ -128,6 +122,13 @@ EXA_COLORS="$EXA_COLORS:lc=1;30" # modified
 # git
 EXA_COLORS="$EXA_COLORS:gm=0;35" # modified
 export EXA_COLORS
+
+
+# ALIASES ---------------------------------------------------------------------
+
+
+# bash
+alias dot-bash='source ~/.bashrc'
 
 
 # ls commands
@@ -223,6 +224,10 @@ function gist() {
 # vim
 alias vimf='vim-text-files'
 alias vimt='vimtype'
+
+
+# grep
+alias grep='grep --color=auto'
 
 
 # python
