@@ -71,6 +71,8 @@ export GOROOT=/usr/local/go1.11
 pushpath $GOROOT/bin
 export GOPATH=$HOME/dev/go
 pushpath $GOPATH/bin
+export GOGENNYTYPES='string,int,float64,bool,Void,Bytes'
+pushpath $GOPATH/bin
 
 # rust
 pushpath $HOME/.cargo/bin
@@ -214,7 +216,7 @@ function gist() {
 	if [ -z "$1" ]; then
 		git diff --stat HEAD HEAD~
 	elif [ -z "$2" ]; then
-		git diff --stat HEAD HEAD~$1
+		git diff --stat HEAD~$1 HEAD
 	else
 		git diff --stat HEAD~$1 HEAD~$2
 	fi
