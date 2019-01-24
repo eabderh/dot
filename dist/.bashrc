@@ -250,8 +250,9 @@ alias net='wgnet'
 
 
 
-# go
+# golang
 #alias go='export GOPATH=$GOPATH:$PWD'
+alias gogen='go generate'
 
 
 # du
