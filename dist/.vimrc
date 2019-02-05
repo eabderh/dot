@@ -188,6 +188,7 @@ endfunction
 
 
 "[*] colorscheme
+filetype plugin on
 syntax on
 "colorscheme mustang
 "colorscheme twilight256
