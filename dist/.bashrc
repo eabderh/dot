@@ -71,7 +71,7 @@ export GOROOT=/usr/local/go1.11
 pushpath $GOROOT/bin
 export GOPATH=$HOME/dev/go
 pushpath $GOPATH/bin
-export GOGENNYTYPES='string,int,float64,bool,Void,Bytes'
+export GOGENNYTYPES='string,int,float64,bool,Void,Bytes,Time,Duration'
 pushpath $GOPATH/bin
 
 # rust

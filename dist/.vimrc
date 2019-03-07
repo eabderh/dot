@@ -62,6 +62,8 @@ Plugin 'nikvdp/ejs-syntax'
 	" ejs filetype
 Plugin 'fatih/vim-go'
 	" golang helper
+Plugin 'posva/vim-vue'
+	" vue filetype
 
 " unused plugins
 "Plugin 'ntpeters/vim-better-whitespace'
