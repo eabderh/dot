@@ -43,7 +43,78 @@ shopt -s histverify
 #export TERM=xterm-256color
 #export TERM=screen-256color-s
 export TERM=screen-256color
-export PS1="\[\e[1;37m\][\u@\h] \$(python ~/.pwd.py 2> /dev/null) \$ \[\e[0m\]"
+
+PROMPT_CWD='$(python ~/.pwd.py 2> /dev/null)'
+PROMPT_USER='[\u@\h]'
+
+PROMPT_STYLE_PREPEND='\[\e[39;49;0m\]'
+PROMPT_STYLE_INFO='\[\e[37;49;1m\]'
+PROMPT_STYLE_SPECIAL='\[\e[37;49;1m\]'
+PROMPT_STYLE_NORMAL='\[\e[0;39;0m\]'
+
+PROMPT_PREPEND=$'\u2666'
+PROMPT_PREPEND=$'\u258C'
+#PROMPT_PREPEND="#"
+PROMPT_INFO_SEP='>'
+PROMPT_CMD_PREPEND='$'
+
+#export PSD=0
+#
+#PROMPT_INFO=()
+#PROMPT_INFO[0]="$PROMPT_STYLE_INFO$PROMPT_PREPEND"
+#PROMPT_INFO[1]="$PROMPT_CWD"
+
+function oneline() {
+	PROMPT=''
+	PROMPT+="$PROMPT_STYLE_PREPEND"
+	PROMPT+="$PROMPT_PREPEND "
+	PROMPT+="$PROMPT_STYLE_SPECIAL"
+	PROMPT+="$PROMPT_CWD "
+	PROMPT+="$PROMPT_CMD_PREPEND "
+	PROMPT+="$PROMPT_STYLE_NORMAL"
+	export PS1="$PROMPT"
+}
+
+function twoline() {
+	PROMPT=''
+	#PROMPT+='\n'
+	#PROMPT+="$PROMPT_PREPEND "
+	#PROMPT+="$PROMPT_STYLE_INFO"
+	#PROMPT+="$PROMPT_USER $PROMPT_INFO_SEP "
+	PROMPT+="$PROMPT_STYLE_PREPEND"
+	PROMPT+="$PROMPT_PREPEND "
+	PROMPT+="$PROMPT_STYLE_NORMAL"
+	PROMPT+="$PROMPT_USER "
+	PROMPT+="$PROMPT_STYLE_SPECIAL"
+	PROMPT+="$PROMPT_CWD \n"
+	PROMPT+="$PROMPT_STYLE_PREPEND"
+	PROMPT+="$PROMPT_PREPEND "
+	PROMPT+="$PROMPT_STYLE_SPECIAL"
+	PROMPT+="$PROMPT_CMD_PREPEND "
+	PROMPT+="$PROMPT_STYLE_NORMAL"
+	export PS1="$PROMPT"
+}
+
+oneline
+
+#PROMPT=''
+##PROMPT+='\n'
+##PROMPT+="$PROMPT_PREPEND "
+##PROMPT+="$PROMPT_STYLE_INFO"
+##PROMPT+="$PROMPT_USER $PROMPT_INFO_SEP "
+#PROMPT+="$PROMPT_STYLE_PREPEND"
+#PROMPT+="$PROMPT_PREPEND "
+#PROMPT+="$PROMPT_STYLE_NORMAL"
+#PROMPT+="$PROMPT_USER "
+#PROMPT+="$PROMPT_STYLE_SPECIAL"
+#PROMPT+="$PROMPT_CWD \n"
+#PROMPT+="$PROMPT_STYLE_PREPEND"
+#PROMPT+="$PROMPT_PREPEND "
+#PROMPT+="$PROMPT_STYLE_SPECIAL"
+#PROMPT+="$PROMPT_CMD_PREPEND "
+#PROMPT+="$PROMPT_STYLE_NORMAL"
+#export PS1="$PROMPT"
+
 #export PS1="\[[\e[01;04;38m\]\u@\h\e[00;01m\]] \$(python ~/.pwd.py 2> /dev/null) \$ \[\e[0;0m\]"
 
 # history
@@ -74,12 +145,17 @@ export PYTHONPATH=$HOME/dev/python/lib
 export PYTHONSTARTUP=$HOME/.pythonstartup.py
 
 # golang
-export GOROOT=/usr/local/go1.11
+export GOROOT=/usr/local/go
 pushpath $GOROOT/bin
 export GOPATH=$HOME/dev/go
 pushpath $GOPATH/bin
 export GOGENNYTYPES='string,int,float64,bool,Void,Bytes,Time,Duration'
 pushpath $GOPATH/bin
+
+# node / nodejs
+NODEJSVER='v10.15.3-linux-x64'
+NODEJSROOT=/usr/local/node-$NODEJSVER
+pushpath $NODEJSROOT/bin
 
 # rust
 pushpath $HOME/.cargo/bin

@@ -4,8 +4,9 @@ import os
 pwd = os.getcwd()
 homedir = os.path.expanduser('~')
 pwd = pwd.replace(homedir, '~', 1)
-if len(pwd) > 30:
-    pwd = '...'+pwd[-30:]
+maxlen = 40
+if len(pwd) > maxlen:
+    pwd = '...'+pwd[-maxlen:]
 print(pwd)
 
 
