@@ -172,7 +172,6 @@ exabase="exa 	--group-directories-first \
 				--sort=Ext \
 				--color=always"
 exalong="$exabase 	--long \
-					--all \
 					--group \
 					--git \
 					--links \
@@ -218,7 +217,7 @@ alias dot-bash='source ~/.bashrc'
 
 # ls commands
 alias ls="$exabase"
-alias ll="$exalong"
+alias ll="$exalong --all"
 #alias ls="/bin/ls --color=auto \
 #	--group-directories-first --sort=extension"
 #alias ll="/bin/ls -ao --color=auto \
@@ -230,8 +229,8 @@ alias ll="$exalong"
 
 
 # tree
-alias xee="$exalong --tree"
-alias tree="$exalong --tree"
+alias xee="$exalong --all --tree"
+alias tree="$exalong --tree --level 2"
 
 
 # cd
