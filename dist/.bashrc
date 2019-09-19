@@ -151,6 +151,8 @@ export GOPATH=$HOME/dev/go
 pushpath $GOPATH/bin
 export GOGENNYTYPES='string,int,float64,bool,Void,Bytes,Time,Duration'
 pushpath $GOPATH/bin
+export GO111MODULE=off
+export GOPRIVATE=bytekite.io/x/*
 
 # node / nodejs
 NODEJSVER='v10.15.3-linux-x64'
@@ -230,7 +232,7 @@ alias ll="$exalong --all"
 
 # tree
 alias xee="$exalong --all --tree"
-alias tree="$exalong --tree --level 2"
+alias tree="$exalong --tree --level 3"
 
 
 # cd
@@ -305,6 +307,10 @@ function gist() {
 }
 
 
+# neovim
+alias nv='nvim'
+
+
 # vim
 alias vimf='vim-text-files'
 alias vimt='vimtype'
@@ -335,10 +341,15 @@ alias net='wgnet'
 # golang
 #alias go='export GOPATH=$GOPATH:$PWD'
 alias gogen='go generate'
+alias gom='GO111MODULE=on go'
 
 
 # du
 #alias dui='du --max-depth=1 -h | sort -hr'
+
+
+# yq (yaml interpreter)
+alias yq='yq.v2'
 
 
 # LS COLORS -------------------------------------------------------------------
