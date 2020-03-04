@@ -1,0 +1,24 @@
+set editing-mode vi
+set show-all-if-ambiguous on
+set completion-ignore-case on
+set menu-complete-display-prefix on
+
+
+set keymap vi-command
+"p": "i !!\n"
+	# previous command
+"t": kill-whole-line
+"z": "ti"
+	# kill line and enter insert mode
+"f": forward-word
+"s": backward-word
+"F": end-of-line
+"S": beginning-of-line
+"o": "Fa"
+"/": reverse-search-history
+
+set keymap vi-insert
+"jk": "\e"
+
+
+

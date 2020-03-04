@@ -1,0 +1,14 @@
+
+session_name: dot
+windows:
+- window_name: files
+  layout: even-vertical
+  panes:
+  - shell_command:
+    - cd ~/dev/dot
+    - gs
+  - shell_command:
+    - cd ~/dev/dot/dist
+    - ll
+
+
