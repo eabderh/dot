@@ -39,6 +39,7 @@ export LC_ALL=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
 # command line
+shopt -s globstar
 shopt -s histverify
 #export TERM=xterm-256color
 #export TERM=screen-256color-s
@@ -155,8 +156,9 @@ export GO111MODULE=off
 export GOPRIVATE=bytekite.io/x/*
 
 # node / nodejs
-NODEJSVER='v10.15.3-linux-x64'
-NODEJSROOT=/usr/local/node-$NODEJSVER
+NODEJSVER=''
+#NODEJSVER='-v10.15.3-linux-x64'
+NODEJSROOT=/usr/local/node$NODEJSVER
 pushpath $NODEJSROOT/bin
 
 # rust

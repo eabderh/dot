@@ -5,8 +5,11 @@
 "date: 2014-11-02
 
 
+
 "[*] initial stuff
 let mapleader='m'
+nnoremap <leader>g :set syntax=go<CR>
+
 
 
 "[*] sources
@@ -130,7 +133,7 @@ nnoremap <silent> <leader>x :ToggleWhitespace<CR>
 "nmap N <Plug>(easymotion-prev)
 
 
-"[*.*.*] indent guides
+"[*.*.*] indent guids
 "let g:indent_guides_start_level = 2
 "let g:indent_guides_guide_size = 1
 "let g:indent_guides_auto_colors = 0
@@ -190,8 +193,13 @@ endfunction
 
 
 "[*] colorscheme
-filetype plugin on
 syntax on
+filetype plugin on
+"set hidden
+syntax sync fromstart
+
+"autocmd BufReadPost *.go set syntax=go
+
 "colorscheme mustang
 "colorscheme twilight256
 "colorscheme badwolf
@@ -248,10 +256,14 @@ set scrolloff=10
 
 
 "[*.*] buffer mappings
-nnoremap <silent> <leader>f :<C-u>SmartSave<CR>:bnext<CR>
-nnoremap <silent> <leader>s :<C-u>SmartSave<CR>:bprevious<CR>
-nnoremap <silent> . :<C-u>SmartSave<CR>:bnext<CR>
-nnoremap <silent> , :<C-u>SmartSave<CR>:bprevious<CR>
+"nnoremap <silent> <leader>f :<C-u>SmartSave<CR>:bnext<CR>
+"nnoremap <silent> <leader>s :<C-u>SmartSave<CR>:bprevious<CR>
+"nnoremap <silent> . :<C-u>SmartSave<CR>:bnext<CR>
+"nnoremap <silent> , :<C-u>SmartSave<CR>:bprevious<CR>
+nnoremap <silent> <leader>f :w<CR>:bnext<CR>
+nnoremap <silent> <leader>s :w<CR>:bprevious<CR>
+nnoremap <silent> . :w<CR>:bnext<CR>
+nnoremap <silent> , :w<CR>:bprevious<CR>
 nnoremap <silent> <leader>F :bnext<CR>
 nnoremap <silent> <leader>S :bprevious<CR>
 nnoremap <silent> <leader>m :b#<CR>
@@ -293,21 +305,22 @@ nnoremap we :only<CR>
 
 
 "[*.*] command mappings (save)
-command -nargs=0 -bar SmartSave if &modified
-	\|	if empty(bufname('%'))
-	\|		browse confirm write
-	\|	else
-	\|		confirm write
-	\|	endif
-	\|endif
+"command -nargs=0 -bar SmartSave if &modified
+"	\|	if empty(bufname('%'))
+"	\|		browse confirm write
+"	\|	else
+"	\|		confirm write
+"	\|	endif
+"	\|endif
 
 "inoremap <silent> jw <Esc>:<C-u>SmartSave<CR>i
 "inoremap <silent> jx <Esc>:x<CR>
 nnoremap ;; :
-nnoremap <silent> ;w :<C-u>SmartSave<CR>
-nnoremap <silent> ;x :x<CR>
-nnoremap <silent> ;dd :w<CR>:bd<CR>
-nnoremap <silent> ;q :q!<CR>
+"nnoremap <silent> ;w :<C-u>SmartSave<CR>
+"nnoremap <silent> ;w :<C-u>SmartSave<CR>
+"nnoremap <silent> ;x :x<CR>
+"nnoremap <silent> ;dd :w<CR>:bd<CR>
+"nnoremap <silent> ;q :q!<CR>
 
 
 "[*.*] command mappings
@@ -424,9 +437,9 @@ set shiftwidth=4
 
 "[*.*] folding
 set nofoldenable
-set foldmethod=syntax
+"set foldmethod=syntax
 set foldlevel=4
-autocmd FileType c setlocal foldmethod=syntax
+"autocmd FileType c setlocal foldmethod=syntax
 
 "[*.*] get rid of latex files 'press enter to continue' messages
 set cmdheight=2
