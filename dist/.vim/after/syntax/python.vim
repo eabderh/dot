@@ -1,7 +1,0 @@
-
-
-syntax keyword NormalBold self
-
-
-
-
