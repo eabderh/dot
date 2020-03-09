@@ -69,19 +69,19 @@
 # End of xbindkeys configuration #
 ##################################
 
-"pactl set-sink-volume 0 -10%"
+"pactl set-sink-volume alsa_output.pci-0000_0b_00.3.analog-stereo -10%"
   Control + Down
 
-"pactl set-sink-volume 0 +10%"
+"pactl set-sink-volume alsa_output.pci-0000_0b_00.3.analog-stereo +10%"
   Control + Up
 
-"playerctl play-pause"
+"playerctl --player=spotify,chromium play-pause"
   Control + space
 
-"playerctl next"
+"playerctl --player=spotify,chromium next"
   Control + Right
 
-"playerctl previous"
+"playerctl --player=spotify,chromium previous"
   Control + Left
 
 # dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player
