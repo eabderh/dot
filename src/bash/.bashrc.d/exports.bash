@@ -35,8 +35,9 @@ export DEBFULLNAME="Elias Abderhalden"
 export S3BUCKET='bananalias-storage'
 
 # golang
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/dev/go
+export GOROOT="/usr/local/go"
+export GOPATH="$HOME/dev/go"
+export GOSRC="$GOPATH/src"
 export GOGENNYTYPES='string,int,float64,bool,Void,Bytes,Time,Duration'
 export GO111MODULE=off
 export GOPRIVATE=bytekite.io/x/*
