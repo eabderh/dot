@@ -1,128 +1,3 @@
-! colors
-! from terminal.sexy
-!------------------------------------------------------------------------------
-
-
-
-
-
-! special
-!*.foreground:   #ffffff
-!*.background:   #161616
-!*.cursorColor:  #ffffff
-!
-!! black
-!*.color0:       #222222
-!*.color8:       #666666
-!
-!! red
-!*.color1:       #e84f4f
-!*.color9:       #d23d3d
-!
-!! green
-!*.color2:       #b7ce42
-!*.color10:      #abe041
-!
-!! yellow
-!*.color3:       #fea63c
-!*.color11:      #fea63c
-!
-!! blue
-!*.color4:       #66aabb
-!*.color12:      #66aabb
-!
-!! magenta
-!*.color5:       #b7416e
-!*.color13:      #ca3d73
-!
-!! cyan
-!*.color6:       #6d878d
-!*.color14:      #42717b
-!
-!! white
-!*.color7:       #dddddd
-!*.color15:      #cccccc
-
-
-!------------------------------------------------------------------------------
-
-!! special
-!*.foreground:   #c5c8c6
-!*.background:   #1d1f21
-!*.cursorColor:  #c5c8c6
-!
-!! black
-!*.color0:       #282a2e
-!*.color8:       #373b41
-!
-!! red
-!*.color1:       #a54242
-!*.color9:       #cc6666
-!
-!! green
-!*.color2:       #8c9440
-!*.color10:      #b5bd68
-!
-!! yellow 
-!*.color3:       #de935f
-!*.color11:      #f0c674
-!
-!! blue
-!*.color4:       #5f819d
-!*.color12:      #81a2be
-!
-!! magenta
-!*.color5:       #b02a71
-!*.color13:      #ce6c84
-!
-!! cyan
-!*.color6:       #5e8d87
-!*.color14:      #8abeb7
-!
-!! white
-!*.color7:       #707880
-!*.color15:      #c5c8c6
-
-!------------------------------------------------------------------------------
-
-!! special
-!*.foreground:   #ececec
-!*.background:   #1e1e1e
-!*.cursorColor:  #ececec
-!
-!! black
-!*.color0:       #000000
-!*.color8:       #808080
-!
-!! red
-!*.color1:       #800000
-!*.color9:       #ff0000
-!
-!! green
-!*.color2:       #008000
-!*.color10:      #00ff00
-!
-!! yellow
-!*.color3:       #808000
-!*.color11:      #ffff00
-!
-!! blue
-!*.color4:       #000080
-!*.color12:      #0000ff
-!
-!! magenta
-!*.color5:       #800080
-!*.color13:      #ff00ff
-!
-!! cyan
-!*.color6:       #008080
-!*.color14:      #00ffff
-!
-!! white
-!*.color7:       #c0c0c0
-!*.color15:      #ffffff
-
-
 
 ! URxvt
 !------------------------------------------------------------------------------
@@ -147,9 +22,12 @@ URxvt.cursorUnderline: false
 URxvt.saveline: 2048
 URxvt.scrollBar: false
 URxvt.scrollBar_right: false
-URxvt.urgentOnBell: true
 URxvt.depth: 24
 URxvt.iso14755: false
+
+! bell
+URxvt.urgentOnBell: false
+URxvt.visualBell: false
 
 ! copy/paste
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
@@ -169,90 +47,11 @@ URxvt.keysym.End: \033[4~
 !URxvt.perl-ext-common: bell-command
 
 
+! colors
 !------------------------------------------------------------------------------
 
 
-
-
-
-
-
-!! special
-!*.foreground:   #d7d1ca
-!*.background:   #1e1e1e
-!*.cursorColor:  #d7d1ca
-!
-!! black
-!*.color0:       #101010
-!*.color8:       #404040
-!
-!! red
-!*.color1:       #d23d3d
-!*.color9:       #d23d3d
-!
-!! green
-!*.color2:       #81d643
-!*.color10:      #81d643
-!
-!! yellow
-!*.color3:       #f39d21
-!*.color11:      #f39d21
-!
-!! blue
-!*.color4:       #4e9fb1
-!*.color12:      #4e9fb1
-!
-!! magenta
-!*.color5:       #ff427e
-!*.color13:      #ff427e
-!
-!! cyan
-!*.color6:       #42717b
-!*.color14:      #42717b
-!
-!! white
-!*.color7:       #dddddd
-!*.color15:      #fafafa
-
-
-
-
-!------------------------------------------------------------------------------
-
-
-!! gruvbox
-!! hard contrast: *background: #1d2021
-!*background: #1e1e1e
-!! soft contrast: *background: #32302f
-!*foreground: #ebdbb2
-!! Black + DarkGrey
-!*color0:  #282828
-!*color8:  #928374
-!! DarkRed + Red
-!*color1:  #cc241d
-!*color9:  #fb4934
-!! DarkGreen + Green
-!*color2:  #98971a
-!*color10: #b8bb26
-!! DarkYellow + Yellow
-!*color3:  #d79921
-!*color11: #fabd2f
-!! DarkBlue + Blue
-!*color4:  #458588
-!*color12: #83a598
-!! DarkMagenta + Magenta
-!*color5:  #b16286
-!*color13: #d3869b
-!! DarkCyan + Cyan
-!*color6:  #689d6a
-!*color14: #8ec07c
-!! LightGrey + White
-!*color7:  #a89984
-!*color15: #ebdbb2
-
-
-!------------------------------------------------------------------------------
-
+! https://github.com/morhetz/gruvbox-contrib
 
 ! gruvbox matched
 ! hard contrast: *background: #1d2021
