@@ -61,7 +61,8 @@ URxvt.keysym.End: \033[4~
 ! Black + DarkGrey
 !*color0:  #282828
 !*color0:  #222222
-*color0:  #1e1e1e
+!*color0:  #1e1e1e
+*color0:  #171717
 
 *color8:  #928374
 ! DarkRed + Red
