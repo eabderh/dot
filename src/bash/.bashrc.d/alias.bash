@@ -38,7 +38,7 @@ alias ll="$exalong --all"
 # tree
 #------------------------------------------------------------------------------
 alias xee="$exalong --all --tree"
-alias tree="$exalong --tree --level 3"
+alias tree="$exalong --tree --level 2"
 
 # cd
 #------------------------------------------------------------------------------
