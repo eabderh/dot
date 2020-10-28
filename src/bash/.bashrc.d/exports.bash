@@ -59,7 +59,7 @@ export HISTFILE="$HOME/.history.d/$(tty | sed -e 's;/;;g')"
 # xelatex
 export TEXHOME="$HOME/.local/lib/latex"
 export TEXINPUTS="$TEXHOME//:"
-export TTFONTS="$HOME/.local/share/fonts//:"
+export TTFONTS="/usr/share/fonts//:$HOME/.local/share/fonts//:"
 export OPENTYPEFONTS="$HOME/.local/share/fonts//:"
 
 
