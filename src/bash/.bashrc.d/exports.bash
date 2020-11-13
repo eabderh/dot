@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# admin
+export EMAIL="elias@bytekite.io"
+
 # system
 export SHELL=/bin/bash
 
@@ -28,7 +31,7 @@ export TERM=screen-256color
 export LESS='-R'
 
 # dh-make (debian)
-export DEBEMAIL="elias@bytekite.io"
+export DEBEMAIL="$EMAIL"
 export DEBFULLNAME="Elias Abderhalden"
 
 # aws s3
@@ -39,7 +42,7 @@ export GOROOT="/usr/local/go"
 export GOPATH="$HOME/dev/go"
 export GOSRC="$GOPATH/src"
 export GOGENNYTYPES='string,int,float64,bool,Void,Bytes,Time,Duration'
-export GO111MODULE=off
+export GO111MODULE=on
 export GOPRIVATE=bytekite.io/x/*
 
 # python
@@ -62,4 +65,11 @@ export TEXINPUTS="$TEXHOME//:"
 export TTFONTS="/usr/share/fonts//:$HOME/.local/share/fonts//:"
 export OPENTYPEFONTS="$HOME/.local/share/fonts//:"
 
+# lego
+export LEGO_PATH="/etc/lego-ssl"
+# lego namecheap
+export NAMECHEAP_API_USER="bananalias"
+
+# envy
+export ENVY=$(which envy)
 
