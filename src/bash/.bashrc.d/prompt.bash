@@ -3,8 +3,7 @@
 
 source $HOME/.bashrc.d/lib/colors.bash
 
-PROMPT_CWD='$(pwd.sh 2> /dev/null)'
-#PROMPT_CWD='$(python ~/.pwd.py 2> /dev/null)'
+PROMPT_CWD='$(spwd 2> /dev/null)'
 PROMPT_USER='[\u@\h]'
 PROMPT_HOST='[\h]'
 

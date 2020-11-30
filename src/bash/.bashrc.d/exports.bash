@@ -1,5 +1,8 @@
 #!/bin/bash
 
+export LOCALROOT="$HOME/.local"
+export SCRIPTSPATH="$LOCALROOT/bin"
+
 # admin
 export EMAIL="elias@bytekite.io"
 
@@ -69,13 +72,13 @@ export GPG_TTY="$(tty)"
 export HISTFILE="$HOME/.history.d/$(tty | sed -e 's;/;;g')"
 
 # xelatex
-export TEXHOME="$HOME/.local/lib/latex"
+export TEXHOME="$LOCALROOT/usr/lib/latex"
 export TEXINPUTS="$TEXHOME//:"
-export TTFONTS="/usr/share/fonts//:$HOME/.local/share/fonts//:"
-export OPENTYPEFONTS="$HOME/.local/share/fonts//:"
+export TTFONTS="/usr/share/fonts//:$LOCALROOT/usr/share/fonts//:"
+export OPENTYPEFONTS="$LOCALROOT/usr/share/fonts//:"
 
 # lego
-export LEGO_PATH="$HOME/.local/etc/lego-ssl"
+export LEGO_PATH="$LOCALROOT/etc/lego-ssl"
 # lego namecheap
 export NAMECHEAP_API_USER="bananalias"
 
@@ -83,7 +86,7 @@ export NAMECHEAP_API_USER="bananalias"
 export ENVY=$(which envy)
 
 # aptly & aptlx
-export APTLY_ROOT="$HOME/.local/var/lib/aptly"
-export APTLX_ROOT="$HOME/.local/etc/aptlx/build.d"
+export APTLY_ROOT="$LOCALROOT/var/lib/aptly"
+export APTLX_ROOT="$LOCALROOT/etc/aptlx/build.d"
 
 

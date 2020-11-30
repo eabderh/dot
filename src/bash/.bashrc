@@ -46,19 +46,19 @@ function pushpath() {
 }
 
 # os
-pushpath /usr/local/bin
-pushpath ~/.local/bin
+#pushpath /usr/local/bin
+pushpath $LOCALROOT/usr/bin
 
 
 # golang
 pushpath $GOROOT/bin
-pushpath $GOPATH/bin
+#pushpath $GOPATH/bin
 
 # node / nodejs
-pushpath $NODE_ROOT/bin
+#pushpath $NODE_ROOT/bin
 
 # rust
-pushpath $HOME/.cargo/bin
+#pushpath $HOME/.cargo/bin
 
 
 # LS COLORS -------------------------------------------------------------------
