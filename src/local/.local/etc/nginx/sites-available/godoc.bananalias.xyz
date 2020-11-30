@@ -1,0 +1,9 @@
+# localhost:6684
+
+server {
+	listen 80;
+	server_name godoc.bananalias.xyz;
+	location / {
+		proxy_pass http://localhost:6684;
+	}
+}

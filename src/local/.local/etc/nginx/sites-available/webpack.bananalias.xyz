@@ -1,0 +1,26 @@
+server {
+	listen 80;
+	server_name webpack.bananalias.xyz;
+
+	location /.well-known/acme-challenge {
+		proxy_pass http://127.0.0.1:2320;
+		proxy_set_header Host $http_host;
+	}
+	location / {
+		return 301 https://$host$request_uri;
+	}
+}
+server {
+	listen 443 ssl;
+	server_name webpack.bananalias.xyz;
+
+	ssl_certificate 	/etc/lego-ssl/certificates/webpack.bananalias.xyz.crt;
+	ssl_certificate_key /etc/lego-ssl/certificates/webpack.bananalias.xyz.key;
+
+	location / {
+		proxy_pass http://localhost:6100;
+		proxy_set_header Host $host;
+
+		proxy_http_version 1.1;
+	}
+}

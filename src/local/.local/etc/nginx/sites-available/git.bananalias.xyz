@@ -1,0 +1,38 @@
+# localhost:6123
+server {
+	listen 127.0.0.1:80;
+	server_name git.bananalias.xyz;
+
+	location /.well-known/acme-challenge {
+		proxy_pass http://127.0.0.1:2320;
+		proxy_set_header Host $http_host;
+	}
+	location / {
+		return 301 https://$host$request_uri;
+	}
+}
+server {
+	#allow fc88::/64;
+	#allow fc77::/64;
+	#deny all;
+	#listen 127.0.0.1:80;
+
+	listen 127.0.0.1:443 ssl;
+	server_name git.bananalias.xyz;
+
+	ssl_certificate 	/etc/lego-ssl/certificates/_.bananalias.xyz.crt;
+	ssl_certificate_key /etc/lego-ssl/certificates/_.bananalias.xyz.key;
+
+	location ~ /(.*) {
+		if ($args = "go-get=1") {
+			add_header Content-Type text/html;
+			return 200 '<meta name="go-import" content="$host/$1 git https://$host/$1/.git">';
+		}
+		root /srv/git/;
+		autoindex on;
+	}
+	location / {
+		root /srv/git/;
+		autoindex on;
+	}
+}

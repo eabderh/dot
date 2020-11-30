@@ -1,0 +1,23 @@
+# localhost:6212
+
+# http
+server {
+	server_name intern.bananalias.xyz;
+	listen 80;
+	return 301 https://$host$request_uri;
+}
+
+# https
+server {
+	server_name intern.bananalias.xyz;
+
+	listen 443 ssl;
+	ssl_certificate 
+		/etc/letsencrypt/live/bananalias.xyz/fullchain.pem;
+	ssl_certificate_key 
+		/etc/letsencrypt/live/bananalias.xyz/privkey.pem;
+
+	location / {
+		proxy_pass http://localhost:6212;
+	}
+}

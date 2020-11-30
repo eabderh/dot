@@ -1,0 +1,6 @@
+DIST="buster"
+NAME="bananalias"
+GPG_KEYID="elias@bytekite.io"
+GPG_KEYRING="$HOME/.gnupg/pubring.kbx"
+QUERY_FILE="./query.list"
+REPO="local"

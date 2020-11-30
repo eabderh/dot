@@ -1,0 +1,25 @@
+# http
+server {
+	listen 80;
+	server_name ~^(?<port_subdomain>[0-9]*).port.bananalias.xyz$;
+	return 301 https://$host$request_uri;
+}
+
+server {
+	listen 443 ssl;
+	server_name ~^(?<port_subdomain>[0-9]*).port.bananalias.xyz$;
+
+	ssl_certificate 	/etc/lego-ssl/certificates/_.port.bananalias.xyz.crt;
+	ssl_certificate_key /etc/lego-ssl/certificates/_.port.bananalias.xyz.key;
+
+	location / {
+		proxy_pass http://127.0.0.1:$port_subdomain;
+
+		proxy_set_header Host $host;
+		proxy_set_header X-Forwared-For $remote_addr;
+
+		# websockets
+		proxy_set_header Upgrade $http_upgrade;
+		proxy_set_header Connection "Upgrade";
+	}
+}

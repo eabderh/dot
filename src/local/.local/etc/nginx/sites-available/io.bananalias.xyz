@@ -1,0 +1,16 @@
+# localhost:6010
+
+server {
+	listen 80;
+	server_name io.bananalias.xyz;
+	location / {
+		add_header 'Access-Control-Allow-Origin' '*';
+		proxy_pass http://localhost:6010;
+		#proxy_set_header Host $http_host;
+
+		# websockets
+		proxy_http_version 1.1;
+		proxy_set_header Upgrade $http_upgrade;
+		proxy_set_header Connection "Upgrade";
+	}
+}

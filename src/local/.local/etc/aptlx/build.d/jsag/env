@@ -1,0 +1,6 @@
+DIST="buster"
+NAME="jsag"
+GPG_KEYID="elias.abderhalden@james-solutions.ch"
+GPG_KEYRING="$HOME/.gnupg/pubring.kbx"
+QUERY_FILE="./query.list"
+REPO="local"
