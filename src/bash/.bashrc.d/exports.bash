@@ -54,13 +54,15 @@ export AWS_PASS_ROOT="priv/primary/aws"
 export AWS_SITE="bytekite.io"
 export AWS_PROFILE="elias"
 export AWS_REGION="eu-central-1"
+# s3fs
+export S3FS_CACHE="$LOCALROOT/cache/s3fs"
 #export AWS_DEFAULT_BUCKET=""
 #export AWS_PROFILE="elias"
 #export S3BUCKET="bananalias-storage"
 
 # golang
 export GOROOT="/usr/local/go"
-export GOPATH="$HOME/dev/go"
+export GOPATH="$HOME/dev/src/go"
 export GOSRC="$GOPATH/src"
 export GOGENNYTYPES='string,int,float64,bool,Void,Bytes,Time,Duration'
 export GO111MODULE=on
