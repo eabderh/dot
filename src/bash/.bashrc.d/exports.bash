@@ -46,8 +46,17 @@ export LESS='-R'
 export DEBEMAIL="$EMAIL"
 export DEBFULLNAME="Elias Abderhalden"
 
-# aws s3
-export S3BUCKET='bananalias-storage'
+# aws
+export AWS_CONFIG_FILE="$LOCALROOT/etc/aws/config"
+#export AWS_SHARED_CREDENTIALS_FILE="$LOCALROOT/etc/aws/credentials"
+export AWS_PASS_ROOT="priv/primary/aws"
+# defaults
+export AWS_SITE="bytekite.io"
+export AWS_PROFILE="elias"
+export AWS_REGION="eu-central-1"
+#export AWS_DEFAULT_BUCKET=""
+#export AWS_PROFILE="elias"
+#export S3BUCKET="bananalias-storage"
 
 # golang
 export GOROOT="/usr/local/go"
