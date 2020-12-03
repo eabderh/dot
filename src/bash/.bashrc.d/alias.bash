@@ -2,46 +2,56 @@
 
 # ALIASES ---------------------------------------------------------------------
 
-# sudo
-#------------------------------------------------------------------------------
-
-alias usudo='sudo env "PATH=$PATH"'
-
 # bash
 #------------------------------------------------------------------------------
 
 alias dot-bash='source ~/.bashrc'
 
+# sudo
+#------------------------------------------------------------------------------
+
+alias usudo='sudo env "PATH=$PATH"'
+
 # ls commands
 #------------------------------------------------------------------------------
 
-exabase="exa 	--group-directories-first \
-				--sort=Ext \
-				--color=always"
-exalong="$exabase 	--long \
-					--group \
-					--git \
-					--links \
-					--time-style=iso"
-					#--created"
-alias ls="$exabase"
-alias ll="$exalong --all"
-#alias ls="/bin/ls --color=auto \
-#	--group-directories-first --sort=extension"
-#alias ll="/bin/ls -ao --color=auto \
-#	--group-directories-first --human-readable --sort=extension"
-## pages ls (scrolling ls)
-#alias lsp="/bin/ls -ao --color \
-#	--group-directories-first --sort=extension |
-#	less -r"
+function ls() {
+	exa 	--group-directories-first \
+			--sort=Ext \
+			--color=always \
+			$@
+}
+
+function ll() {
+	ls 		--long \
+			--group \
+			--git \
+			--links \
+			--time-style=iso \
+			$@
+}
 
 # tree
 #------------------------------------------------------------------------------
-alias xee="$exalong --all --tree"
-alias tree="$exalong --tree --level 2"
+
+function xee() {
+	ll 		--all \
+			--tree \
+			--ignore-glob=.git \
+			$@
+}
+
+function tree() {
+	LEVEL=${1:-2}
+	ll 		--all \
+			--tree \
+			--ignore-glob=.git \
+			--level $LEVEL
+}
 
 # cd
 #------------------------------------------------------------------------------
+
 # follow and expand symbolic links
 alias cdd='cd -P'
 # go up n levels
@@ -54,6 +64,7 @@ alias cd.='cd_up'
 
 # tmux
 #------------------------------------------------------------------------------
+
 alias dot-tmux='tmux source-file ~/.tmux.conf'
 alias tm='tmux -2 -u'
 function tma() {
@@ -72,6 +83,7 @@ alias tmload='tmuxp load'
 
 # git
 #------------------------------------------------------------------------------
+
 alias g='git'
 
 # status
@@ -117,50 +129,49 @@ alias gup='git update-server-info'
 
 # neovim
 #------------------------------------------------------------------------------
+
 alias nv='nvim'
 
 # vim
 #------------------------------------------------------------------------------
+
 alias vimf='vim-text-files'
 alias vimt='vim-type-files'
 
 # grep
 #------------------------------------------------------------------------------
-alias grep='grep --color=auto'
 
-# python
-#------------------------------------------------------------------------------
-alias py='python'
-alias pyserve='python -m http.server 6000'
+alias grep='grep --color=auto'
 
 # df
 #------------------------------------------------------------------------------
+
 alias df='df -h'
 
 # tmsu
 #------------------------------------------------------------------------------
+
 alias tir='tmsu'
 alias tag='tmsu tag'
 
-# wgnet (wireguard)
-#------------------------------------------------------------------------------
-alias net='wgnet'
-
 # golang
 #------------------------------------------------------------------------------
+
 alias gogen='go generate'
-alias gom='GO111MODULE=on go'
 
 # yq (yaml interpreter)
 #------------------------------------------------------------------------------
+
 alias yq='yq.v2'
 
 # fdfind
 #------------------------------------------------------------------------------
+
 alias fd='fdfind'
 
 # other
 #------------------------------------------------------------------------------
+
 alias dateISO='date +%F'
 
 #------------------------------------------------------------------------------
