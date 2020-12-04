@@ -72,8 +72,17 @@ export GOPRIVATE=git.bananalias.xyz/*
 export PYTHONPATH=$HOME/dev/python/lib
 export PYTHONSTARTUP=$HOME/.pythonstartup.py
 
+# webpack
+WEBPACK_WP="$HOME/dev/src/webpack"
+WEBPACK_JAMES="$HOME/james/dev/src/webpack"
+export WEBPACK_ROOTS="$WEBPACK_WP;$WEBPACK_JAMES"
+export WEBPACK_ALIASES="WP;JAMES"
+export WEBPACK_MODULES_PATH="node_modules;"\
+"$WEBPACK_WP/node_modules;"\
+"$WEBPACK_WP/loaders"
+
 # node
-export NODE_PATH="$HOME/dev/webpack"
+export NODE_PATH="$WEBPACK_WP"
 export NODE_ROOT=/usr/local/node
 
 # gpg
