@@ -28,6 +28,7 @@ function ll() {
 			--git \
 			--links \
 			--time-style=iso \
+			--all \
 			$@
 }
 
@@ -35,16 +36,14 @@ function ll() {
 #------------------------------------------------------------------------------
 
 function xee() {
-	ll 		--all \
-			--tree \
+	ll 		--tree \
 			--ignore-glob=.git \
 			$@
 }
 
 function tree() {
 	LEVEL=${1:-2}
-	ll 		--all \
-			--tree \
+	ll 		--tree \
 			--ignore-glob=.git \
 			--level $LEVEL
 }
