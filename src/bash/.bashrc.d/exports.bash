@@ -79,6 +79,7 @@ export WEBPACK_ROOTS="$WEBPACK_WP;$WEBPACK_JAMES"
 export WEBPACK_ALIASES="WP;JAMES"
 export WEBPACK_MODULES_PATH="node_modules;"\
 "$WEBPACK_WP/node_modules;"\
+"$WEBPACK_JAMES/node_modules;"\
 "$WEBPACK_WP/loaders"
 
 # node
