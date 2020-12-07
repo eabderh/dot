@@ -1,0 +1,21 @@
+server {
+	listen 80;
+	server_name cv.bananalias.xyz;
+	return 301 https://$host$request_uri;
+}
+server {
+	#allow fc88::/64;
+	#allow fc77::/64;
+	#deny all;
+
+	listen 443 ssl;
+	server_name cv.bananalias.xyz;
+
+	ssl_certificate 	/etc/lego-ssl/certificates/_.bananalias.xyz.crt;
+	ssl_certificate_key /etc/lego-ssl/certificates/_.bananalias.xyz.key;
+
+	location / {
+		root /srv/cv/;
+		autoindex on;
+	}
+}
