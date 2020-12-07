@@ -8,6 +8,7 @@ export EMAIL="elias@bytekite.io"
 
 # system
 export SHELL=/bin/bash
+[ -z $TZ ] && export TZ="/usr/share/zoneinfo/Europe/Zurich"
 
 # history
 export HISTCONTROL=ignorespace:ignoredups:erasedups
