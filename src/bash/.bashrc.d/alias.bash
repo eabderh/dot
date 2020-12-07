@@ -173,4 +173,12 @@ alias fd='fdfind'
 
 alias dateISO='date +%F'
 
+# gpg
+#------------------------------------------------------------------------------
+
+function gpg() {
+	gpg-connect-agent updatestartuptty /bye > /dev/null
+	/usr/bin/gpg $@
+}
+
 #------------------------------------------------------------------------------

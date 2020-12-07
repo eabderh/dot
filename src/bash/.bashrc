@@ -49,18 +49,6 @@ function pushpath() {
 #pushpath /usr/local/bin
 pushpath $LOCALROOT/usr/bin
 
-
-# golang
-pushpath $GOROOT/bin
-#pushpath $GOPATH/bin
-
-# node / nodejs
-#pushpath $NODE_ROOT/bin
-
-# rust
-#pushpath $HOME/.cargo/bin
-
-
 # LS COLORS -------------------------------------------------------------------
 
 if [ -e ~/.dircolors ]; then
