@@ -12,6 +12,23 @@ alias dot-bash='source ~/.bashrc'
 
 alias usudo='sudo env "PATH=$PATH"'
 
+# interactive
+#------------------------------------------------------------------------------
+
+function mv() {
+	/usr/bin/mv \
+			--interactive \
+			"$@"
+}
+export -f mv
+
+function cp() {
+	/usr/bin/cp \
+			--interactive \
+			"$@"
+}
+export -f cp
+
 # ls commands
 #------------------------------------------------------------------------------
 
@@ -19,8 +36,9 @@ function ls() {
 	exa 	--group-directories-first \
 			--sort=Ext \
 			--color=always \
-			$@
+			"$@"
 }
+export -f ls
 
 function ll() {
 	ls 		--long \
@@ -29,8 +47,9 @@ function ll() {
 			--links \
 			--time-style=iso \
 			--all \
-			$@
+			"$@"
 }
+export -f ll
 
 # tree
 #------------------------------------------------------------------------------
@@ -38,8 +57,9 @@ function ll() {
 function xee() {
 	ll 		--tree \
 			--ignore-glob=.git \
-			$@
+			"$@"
 }
+export -f xee
 
 function tree() {
 	LEVEL=${1:-2}
@@ -47,6 +67,7 @@ function tree() {
 			--ignore-glob=.git \
 			--level $LEVEL
 }
+export -f tree
 
 # cd
 #------------------------------------------------------------------------------
@@ -59,6 +80,7 @@ function cd_up() {
 	# this is a trick of parameter expansion.
 	# printf repeats for every parameter not matched directly
 }
+export -f cd_up
 alias cd.='cd_up'
 
 # tmux
@@ -73,6 +95,7 @@ function tma() {
 		tmux attach-session -t $1
 	fi
 }
+export -f tma
 alias tmo='tmux attach-session #'
 alias tms='tmux new -s'
 alias tmls='tmux list-sessions'
@@ -123,6 +146,7 @@ function gist() {
 		git diff --stat HEAD~$1 HEAD~$2
 	fi
 }
+export -f gist
 # update-server-info
 alias gup='git update-server-info'
 
@@ -178,7 +202,8 @@ alias dateISO='date +%F'
 
 function gpg() {
 	gpg-connect-agent updatestartuptty /bye > /dev/null
-	/usr/bin/gpg $@
+	/usr/bin/gpg "$@"
 }
+export -f gpg
 
 #------------------------------------------------------------------------------
