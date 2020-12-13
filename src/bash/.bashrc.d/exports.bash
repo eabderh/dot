@@ -50,7 +50,7 @@ export DEBFULLNAME="Elias Abderhalden"
 # aws
 export AWS_CONFIG_FILE="$LOCALROOT/etc/aws/config"
 #export AWS_SHARED_CREDENTIALS_FILE="$LOCALROOT/etc/aws/credentials"
-export AWS_PASS_ROOT="priv/primary/aws"
+export AWS_PASS_ROOT="personal/legals/accounts/aws"
 # defaults
 export AWS_SITE="bytekite.io"
 export AWS_PROFILE="elias"
@@ -102,6 +102,7 @@ export OPENTYPEFONTS="$LOCALROOT/usr/share/fonts//:"
 # lego
 export LEGO_PATH="$LOCALROOT/etc/lego-ssl"
 # lego namecheap
+export NAMECHEAP_PASS_ROOT="personal/legals/accounts/namecheap"
 export NAMECHEAP_API_USER="bananalias"
 
 # envy
