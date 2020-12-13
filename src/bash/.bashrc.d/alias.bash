@@ -2,6 +2,19 @@
 
 # ALIASES ---------------------------------------------------------------------
 
+
+# sudo
+#------------------------------------------------------------------------------
+
+save_function() {
+	local ORIG_FUNC=$(declare -f $1)
+	if [ -z "$ORIG_FUNC" ]; then
+		return 1
+	fi
+	local NEWNAME_FUNC="$2${ORIG_FUNC#$1}"
+	eval "$NEWNAME_FUNC"
+}
+
 # bash
 #------------------------------------------------------------------------------
 
@@ -205,5 +218,21 @@ function gpg() {
 	/usr/bin/gpg "$@"
 }
 export -f gpg
+
+# pass
+#------------------------------------------------------------------------------
+
+function pass() {
+	# shim the 'tree' command in the /usr/bin/pass shell script
+	save_function tree tree_tmp
+	function tree() {
+		ll 	--tree \
+			--ignore-glob=.git \
+			"${@: -1}"
+	}
+	/usr/bin/pass "$@"
+	save_function tree_tmp tree
+	unset tree_tmp
+}
 
 #------------------------------------------------------------------------------
