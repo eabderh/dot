@@ -91,7 +91,7 @@ export NODE_ROOT=/usr/local/node
 export GPG_TTY="$(tty)"
 
 # history
-export HISTROOT="$HOME/.local/var/bash/history.d"
+export HISTROOT="$LOCALROOT/var/bash/history.d"
 mkdir -p $HISTROOT
 export HISTFILE="$HISTROOT/$(tty | sed -e 's;/;;g')"
 
@@ -113,5 +113,8 @@ export ENVY=$(which envy)
 # aptly & aptlx
 export APTLY_ROOT="$LOCALROOT/var/lib/aptly"
 export APTLX_ROOT="$LOCALROOT/etc/aptlx/build.d"
+
+# pass
+export PASSWORD_STORE_DIR="$HOME/.pass"
 
 
