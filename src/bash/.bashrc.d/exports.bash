@@ -91,7 +91,9 @@ export NODE_ROOT=/usr/local/node
 export GPG_TTY="$(tty)"
 
 # history
-export HISTFILE="$HOME/.history.d/$(tty | sed -e 's;/;;g')"
+export HISTROOT="$HOME/.local/var/bash/history.d"
+mkdir -p $HISTROOT
+export HISTFILE="$HISTROOT/$(tty | sed -e 's;/;;g')"
 
 # xelatex
 export TEXHOME="$LOCALROOT/usr/lib/latex"

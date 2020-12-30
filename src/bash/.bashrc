@@ -35,9 +35,6 @@ gpgconf --launch gpg-agent
 # make gpg use current tty (actually uses value in $GPG_TTY)
 gpg-connect-agent updatestartuptty /bye > /dev/null
 
-# history
-mkdir -p "$HOME/.history.d"
-
 # PATH ------------------------------------------------------------------------
 
 function pushpath() {
