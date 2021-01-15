@@ -3,10 +3,6 @@ server {
 	listen 80;
 	server_name deb.bananalias.xyz;
 
-	location /.well-known/acme-challenge {
-		proxy_pass http://127.0.0.1:2320;
-		proxy_set_header Host $http_host;
-	}
 	location / {
 		return 301 https://$host$request_uri;
 	}
@@ -19,8 +15,8 @@ server {
 	listen 443 ssl;
 	server_name deb.bananalias.xyz;
 
-	ssl_certificate 	/etc/lego-ssl/certificates/deb.bananalias.xyz.crt;
-	ssl_certificate_key /etc/lego-ssl/certificates/deb.bananalias.xyz.key;
+	ssl_certificate 	/etc/lego-ssl/certificates/_.bananalias.xyz.crt;
+	ssl_certificate_key /etc/lego-ssl/certificates/_.bananalias.xyz.key;
 
 	location / {
 		root /srv/deb/;

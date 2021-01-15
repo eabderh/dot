@@ -1,7 +1,7 @@
 # localhost:6200
 server {
 	listen 80;
-	server_name webpack.bananalias.xyz;
+	server_name access.bananalias.xyz;
 
 	location /.well-known/acme-challenge {
 		proxy_pass http://127.0.0.1:2320;
@@ -13,10 +13,10 @@ server {
 }
 server {
 	listen 443 ssl;
-	server_name webpack.bananalias.xyz;
+	server_name access.bananalias.xyz;
 
-	ssl_certificate 	/etc/lego-ssl/certificates/webpack.bananalias.xyz.crt;
-	ssl_certificate_key /etc/lego-ssl/certificates/webpack.bananalias.xyz.key;
+	ssl_certificate 	/etc/lego-ssl/certificates/access.bananalias.xyz.crt;
+	ssl_certificate_key /etc/lego-ssl/certificates/access.bananalias.xyz.key;
 
 	location / {
 		proxy_pass http://localhost:6666;

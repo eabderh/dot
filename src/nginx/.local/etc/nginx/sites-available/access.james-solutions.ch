@@ -2,15 +2,13 @@
 server {
 	server_name access.james-solutions.ch;
 	listen 80;
+	location /.well-known/acme-challenge {
+		proxy_pass http://127.0.0.1:2320;
+		proxy_set_header Host $http_host;
+	}
 	location / {
-		#roxy_pass http://localhost:2320;
 		return 301 https://$host$request_uri;
 	}
-	#location /.well-known/acme-challenge {
-	#	proxy_pass http://localhost:2320;
-	#	#proxy_pass http://lego-ssl.bananalias.xyz;
-	#	proxy_set_header Host $http_host;
-	#}
 }
 
 # https
@@ -18,10 +16,12 @@ server {
 	server_name access.james-solutions.ch;
 
 	listen 443 ssl;
-	ssl_certificate 
-		/etc/letsencrypt/live/access.james-solutions.ch/fullchain.pem;
-	ssl_certificate_key 
-		/etc/letsencrypt/live/access.james-solutions.ch/privkey.pem;
+	#ssl_certificate 
+	#	/etc/letsencrypt/live/access.james-solutions.ch/fullchain.pem;
+	#ssl_certificate_key 
+	#	/etc/letsencrypt/live/access.james-solutions.ch/privkey.pem;
+	ssl_certificate 	/etc/lego-ssl/certificates/access.james-solutions.ch.crt;
+	ssl_certificate_key /etc/lego-ssl/certificates/access.james-solutions.ch.key;
 
 	location / {
 		proxy_pass http://localhost:6888;
