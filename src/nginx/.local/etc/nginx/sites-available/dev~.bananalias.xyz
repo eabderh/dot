@@ -1,3 +1,0 @@
-include sites-available/tmp.bananalias.xyz;
-include sites-available/pyserve.bananalias.xyz;
-include sites-available/webpack.bananalias.xyz;

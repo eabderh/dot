@@ -1,9 +1,0 @@
-# http
-server {
-	server_name lego-ssl.bananalias.xyz;
-	listen 80;
-	location / {
-		proxy_pass http://localhost:2320;
-		proxy_set_header Host $http_host;
-	}
-}
