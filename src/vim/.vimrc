@@ -269,10 +269,11 @@ set scrolloff=10
 "nnoremap <silent> <leader>s :<C-u>SmartSave<CR>:bprevious<CR>
 "nnoremap <silent> . :<C-u>SmartSave<CR>:bnext<CR>
 "nnoremap <silent> , :<C-u>SmartSave<CR>:bprevious<CR>
-nnoremap <silent> <leader>f :w<CR>:bnext<CR>
-nnoremap <silent> <leader>s :w<CR>:bprevious<CR>
-nnoremap <silent> . :w<CR>:bnext<CR>
-nnoremap <silent> , :w<CR>:bprevious<CR>
+set hidden
+nnoremap <silent> <leader>f :bnext<CR>
+nnoremap <silent> <leader>s :bprevious<CR>
+nnoremap <silent> . :bnext<CR>
+nnoremap <silent> , :bprevious<CR>
 nnoremap <silent> <leader>F :bnext<CR>
 nnoremap <silent> <leader>S :bprevious<CR>
 nnoremap <silent> <leader>m :b#<CR>
