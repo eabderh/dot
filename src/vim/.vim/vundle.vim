@@ -39,8 +39,8 @@ Plugin 'Shougo/vimfiler.vim'
 " colorscheme plugins
 
 Plugin 'morhetz/gruvbox'
-Plugin 'tomasr/molokai'
-Plugin 'chriskempson/base16-vim'
+"Plugin 'tomasr/molokai'
+"Plugin 'chriskempson/base16-vim'
 
 
 
@@ -48,16 +48,16 @@ Plugin 'chriskempson/base16-vim'
 
 " golang helper
 Plugin 'fatih/vim-go'
-" jade (pug) vim filetype
+" pug vim filetype
 Plugin 'digitaltoad/vim-pug'
 " css filetype
 Plugin 'hail2u/vim-css3-syntax.git'
 " sass filetype
 Plugin 'cakebaker/scss-syntax.vim'
-" ejs filetype
-Plugin 'nikvdp/ejs-syntax'
 " vue filetype
 Plugin 'posva/vim-vue'
+" ejs filetype
+"Plugin 'nikvdp/ejs-syntax'
 
 
 
