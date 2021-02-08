@@ -11,8 +11,8 @@ nnoremap wh 	<C-w>h
 nnoremap wl 	<C-w>l
 
 " exit window mode
-nnoremap wq 	:only<CR>
-nnoremap ww 	:only<CR>
-nnoremap we 	:only<CR>
-nnoremap wdd 	:only<CR>
+nnoremap <silent> 	wq 		:close<CR>
+nnoremap <silent> 	ww 		:only<CR>
+nnoremap <silent> 	we 		:only<CR>
+nnoremap <silent> 	wdd 	:only<CR>
 
