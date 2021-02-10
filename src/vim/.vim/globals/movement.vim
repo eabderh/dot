@@ -35,5 +35,8 @@ nnoremap E 16k
 vnoremap D 16j
 vnoremap E 16k
 
+" set keys that wrap to next line
+set whichwrap=h,l
+
 
 
