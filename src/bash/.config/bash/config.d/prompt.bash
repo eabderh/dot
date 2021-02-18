@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-source $HOME/.bashrc.d/lib/colors.bash
+source $HOME/.config/bash/lib/colors.bash
 
 PROMPT_CWD='$(spwd 2> /dev/null)'
 PROMPT_USER='[\u@\h]'

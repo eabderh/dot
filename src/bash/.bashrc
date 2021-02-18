@@ -11,6 +11,7 @@ esac
 # SOURCING --------------------------------------------------------------------
 
 source /etc/bash_completion
+source $HOME/.config/bash/config.bash
 for file in $HOME/.bashrc.d/*.bash; do
 	#echo "sourcing $file"
 	source $file
