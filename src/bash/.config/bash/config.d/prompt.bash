@@ -1,4 +1,3 @@
-#!/bin/bash
 
 
 source $HOME/.config/bash/lib/colors.bash

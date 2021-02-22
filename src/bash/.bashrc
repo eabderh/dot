@@ -8,61 +8,42 @@ case $- in
 esac
 
 
-# SOURCING --------------------------------------------------------------------
+# path
+#------------------------------------------------------------------------------
 
-source /etc/bash_completion
-source $HOME/.config/bash/config.bash
-for file in $HOME/.bashrc.d/*.bash; do
-	#echo "sourcing $file"
-	source $file
-done
-
-
-# SPECIAL ---------------------------------------------------------------------
-
-# command line
-shopt -s globstar
-shopt -s histverify
-# https://askubuntu.com/a/318746
-shopt -s direxpand
-
-# gnupg (gpg)
-TTY=$(tty)
-TTY_owner=$(stat --format "%U" $TTY)
-if [ ! $TTY_owner = $USER ]; then
-	sudo chown $USER:$USER $TTY
+if [ -z $PATH_ROOT ]; then
+	export PATH_ROOT="$PATH"
 fi
-gpgconf --launch gpg-agent
-# make gpg use current tty (actually uses value in $GPG_TTY)
-gpg-connect-agent updatestartuptty /bye > /dev/null
+export PATH="$PATH_ROOT"
 
-# PATH ------------------------------------------------------------------------
+# sourcing
+#------------------------------------------------------------------------------
 
-function pushpath() {
-	case ":$PATH:" in
-		*":$1:"* 	) :;; # already in path
-		* 			) export PATH="$PATH:$1";;
-	esac
-}
+#for file in $HOME/.bashrc.d/*.bash; do
+#	#echo "sourcing $file"
+#	source $file
+#done
+
+source $HOME/.config/sh/config.bash
+source $HOME/.config/bash/config.bash
+source /etc/bash_completion
+
+
+
+#function pushpath() {
+#	case ":$PATH:" in
+#		*":$1:"* 	) :;; # already in path
+#		* 			) export PATH="$PATH:$1";;
+#	esac
+#}
+#unset -f pushpath
+
+
 
 # os
 #pushpath /usr/local/bin
-pushpath $LOCALROOT/usr/bin
+#pushpath $LOCALROOT/usr/bin
 
-# LS COLORS -------------------------------------------------------------------
-
-if [ -e ~/.dircolors ]; then
-	eval $(dircolors -b ~/.dircolors)
-else
-    eval $(dircolors -b)
-fi
-
-
-# UNSET FUNCTIONS -------------------------------------------------------------
-
-# remove functions to allow them only in this local bash shell
-unset -f change_ls_color
-unset -f pushpath
 
 
 # BINDS -----------------------------------------------------------------------

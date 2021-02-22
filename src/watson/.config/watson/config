@@ -1,0 +1,4 @@
+[options]
+stop_on_start = true
+confirm_new_tag = true
+

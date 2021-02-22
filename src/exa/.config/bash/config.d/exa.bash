@@ -1,7 +1,10 @@
-#!/bin/bash
 
 
-source $HOME/.bashrc.d/lib/colors.bash
+
+# colors
+#------------------------------------------------------------------------------
+
+source $HOME/.config/bash/lib/colors.bash
 
 EXA_COLORS=""
 # timestamp
@@ -35,3 +38,22 @@ EXA_COLORS="$EXA_COLORS:gm=$MAGENTA" # modified
 export EXA_COLORS
 
 
+# tree
+#------------------------------------------------------------------------------
+
+function xee() {
+	ll 		--tree \
+			--ignore-glob=.git \
+			"$@"
+}
+export -f xee
+
+function tree() {
+	LEVEL=${1:-2}
+	ll 		--tree \
+			--ignore-glob=.git \
+			--level $LEVEL
+}
+export -f tree
+
+#------------------------------------------------------------------------------

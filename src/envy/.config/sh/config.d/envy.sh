@@ -1,0 +1,3 @@
+
+export ENVY=$(which envy)
+

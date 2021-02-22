@@ -1,0 +1,4 @@
+[profile elias]
+region=eu-central-1
+output=json
+credential_process=pass_to_aws bytekite.io elias

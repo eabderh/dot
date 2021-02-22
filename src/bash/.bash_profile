@@ -13,7 +13,7 @@ if [ -n "$BASH_VERSION" ]; then
 	fi
 fi
 
-export PATH=$PATH:$HOME/bin
+#export PATH=$PATH:$HOME/bin
 #export LANG=de.DE
 #export LC_CTYPE=elias.ansix3elias
 #export LANG=elias.ansix3elias
