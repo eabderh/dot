@@ -21,7 +21,7 @@ function wlog() {
 	if [ $# -eq 0 ]; then
 		ARGS="--day"
 	fi
-	watson log "$ARGS"
+	watson log $ARGS
 }
 
 function whis() {
@@ -29,6 +29,6 @@ function whis() {
 	if [ $# -eq 0 ]; then
 		ARGS="--day"
 	fi
-	watson report "$ARGS"
+	watson report $ARGS
 }
 
