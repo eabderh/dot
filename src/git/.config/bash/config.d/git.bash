@@ -32,7 +32,7 @@ alias gross='git add . ; git commit ; git push'
 # TODO: put this into shell script
 function gist() {
 	if [ -z "$1" ]; then
-		git diff --stat HEAD HEAD~
+		git diff --stat HEAD~ HEAD
 	elif [ -z "$2" ]; then
 		git diff --stat HEAD~$1 HEAD
 	else
