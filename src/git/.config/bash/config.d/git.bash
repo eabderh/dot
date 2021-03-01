@@ -5,34 +5,34 @@
 #------------------------------------------------------------------------------
 
 # g -> git
-function g() 	{ git $@ 					;}; export -f g
+function g() 	{ git "$@" 					;}; export -f g
 
 
 # status
 alias gs.='git status .'
-function gs() 	{ git status --short $@ 	;}; export -f gs
-function gdif() { git diff $@ 				;}; export -f gdif
+function gs() 	{ git status --short "$@" 	;}; export -f gs
+function gdif() { git diff "$@" 			;}; export -f gdif
 
 
 # commits
-function gadd() { git add $@ 				;}; export -f gadd
-function gaa() 	{ git add --all $@ 			;}; export -f gaa
-function gcom() { git commit $@ 			;}; export -f gcom
+function gadd() { git add "$@" 				;}; export -f gadd
+function gaa() 	{ git add --all "$@" 		;}; export -f gaa
+function gcom() { git commit "$@" 			;}; export -f gcom
 
 
 # branches
-function gche() { git checkout $@ 			;}; export -f gche
-function gbra() { git branch $@ 			;}; export -f gbra
+function gche() { git checkout "$@" 		;}; export -f gche
+function gbra() { git branch "$@" 			;}; export -f gbra
 
 
 # remotes
-function gfe() 	{ git fetch $@ 				;}; export -f gfe
-function gpu() 	{ git push $@ 				;}; export -f gpu
-function gpl() 	{ git pull $@ 				;}; export -f gpl
+function gfe() 	{ git fetch "$@" 			;}; export -f gfe
+function gpu() 	{ git push "$@" 			;}; export -f gpu
+function gpl() 	{ git pull "$@" 			;}; export -f gpl
 
 
 # update-server-info
-function gup() 	{ git update-server-info $@ ;}; export -f gup
+function gup() 	{ git update-server-info "$@" ;}; export -f gup
 
 
 
@@ -43,7 +43,7 @@ function gup() 	{ git update-server-info $@ ;}; export -f gup
 # format fragments
 
 HASH='%C(white)%h'
-TIME='  %C(blue)%<(13)%ad'
+TIME='  %C(blue)%<(13)%ar'
 AUTHOR_EMAIL='  %C(blue)%<(20,trunc)%ae'
 REF='%C(green)%d'
 INDENT='%C(white)       '
@@ -60,10 +60,10 @@ function gl() {
 		--date=relative \
 		"$@"
 		#--graph \
-}; export -f glog
+}; export -f gl
 
-# long git log version (added stat and summary)
-function glog() {
+# historic git log version (added stat and summary)
+function ghis() {
 	# disable colored +/- from --stat
 	git \
 		-c color.diff.new=white \
@@ -74,19 +74,19 @@ function glog() {
 		--stat \
 		--summary \
 		"$@"
-}; export -f glogs
+}; export -f ghis
 
-# historic git log version
-function ghis() {
+# 'lore' git log version
+function glore() {
 	git log \
-		--format=medium \
+		--format=fuller \
 		--date=iso \
 		--stat \
 		--all \
 		--decorate \
-		--abbrev-commit $@
+		--abbrev-commit "$@"
 		#--graph \
-}; export -f ghis
+}; export -f glore
 
 
 
@@ -122,9 +122,9 @@ function gss() {
 
 
 # submodules
-function gsub() { git submodule $@ 	;}; export -f gsub
+function gsub() { git submodule "$@" ;}; export -f gsub
 function gsubup() {
-	git submodule update --recursive --remote $@
+	git submodule update --recursive --remote "$@"
 }; export -f gsubup
 
 
