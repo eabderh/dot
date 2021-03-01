@@ -31,10 +31,8 @@ nnoremap <silent> 	<leader>P 	gqap
 
 
 
-
 " commands
 " -----------------------------------------------------------------------------
-
 
 " time and date insert
 nnoremap <F5> 	"=strftime("[%F %T %z %s]")<CR>P
@@ -42,6 +40,18 @@ inoremap <F5> 	<C-R>=strftime("[%F %T %z %s]")<CR>
 
 " redo
 nnoremap U <C-R>
+
+
+
+" search & replace
+" -----------------------------------------------------------------------------
+
+" replace all highlighted
+nnoremap <leader>r :%s///gc<left><left><left>
+" turn off incremental search results
+set noincsearch
+" turn on highlighting of searches
+set hlsearch
 
 
 

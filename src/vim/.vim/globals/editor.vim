@@ -3,10 +3,6 @@
 " highlighting
 " -----------------------------------------------------------------------------
 
-" turn on highlighting of searches
-set hlsearch
-" turn off incremental search results
-set noincsearch
 " remove all highlightings
 nnoremap <silent> 	<leader>a 	:let @/ = ""<CR>
 
@@ -24,13 +20,17 @@ set number
 set cursorline
 " always show statusbar
 set laststatus=2
-" wrap long lines instead of letting them go off screen
+" wrap long lines instead of letting them go off screen (newline insertion
+" optional)
 set wrap
-" dk
+" break lines (no newline insert) at *breakat* instead of last character
 set linebreak
+" sets chars where line is broken in accordance with *linebreak*
+set breakat=\ ,;:
 " sets column where to automatically set a newline
 set textwidth=0
-" sets chars to show on wrapped lines
+" sets chars to show on wrapped lines (not necessary since gap in line numbers
+" indicates wrapped lines)
 "set showbreak=»
 
 
