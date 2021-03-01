@@ -42,22 +42,21 @@ function gup() 	{ git update-server-info $@ ;}; export -f gup
 
 # format fragments
 
-HASH='%C(white)%h' # 7
-TIME='  %C(blue)%<(13)%ad' # 15
-AUTHOR_EMAIL='  %C(blue)%<(20,trunc)%ae' # 22
-REF='%C(yellow)%<(35)%d'
-INDENT='%C(white)-------'
-#SUBJECT='  %C(cyan)%<(50,trunc)%s'
+HASH='%C(white)%h'
+TIME='  %C(blue)%<(13)%ad'
+AUTHOR_EMAIL='  %C(blue)%<(20,trunc)%ae'
+REF='%C(green)%d'
+INDENT='%C(white)       '
+SUBJECT='  %C(cyan)%<(50,trunc)%s'
 
 # basic format without subject
-export GITLOGFORMAT="$HASH$TIME$AUTHOR_EMAIL$REF%n$INDENT"
-unset HASH TIME AUTHOR_EMAIL REF INDENT # SUBJECT
+export GITLOGFORMAT="$INDENT $REF%n$HASH$TIME$AUTHOR_EMAIL%n$INDENT$SUBJECT"
+unset HASH TIME AUTHOR_EMAIL REF INDENT SUBJECT
 
 # short git log version
 function glog() {
-	SUBJECT='  %C(reset)%<(50,trunc)%s'
 	git log \
-		--pretty=format:"$GITLOGFORMAT$SUBJECT" \
+		--pretty=format:"$GITLOGFORMAT" \
 		--date=relative \
 		"$@"
 		#--graph \
@@ -65,12 +64,12 @@ function glog() {
 
 # long git log version (added stat and summary)
 function glogs() {
-	SUBJECT='  %C(cyan)%<(50,trunc)%s'
+	# disable colored +/- from --stat
 	git \
-		-c color.diff.new=white \ # disable colored +/- from --stat
-		-c color.diff.old=white \ # disable colored +/- from --stat
+		-c color.diff.new=white \
+		-c color.diff.old=white \
 		log \
-		--pretty=format:"$GITLOGFORMAT$SUBJECT" \
+		--pretty=format:"$GITLOGFORMAT" \
 		--date=relative \
 		--stat \
 		--summary \
