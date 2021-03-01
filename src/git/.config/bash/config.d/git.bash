@@ -42,38 +42,53 @@ function gup() 	{ git update-server-info "$@" ;}; export -f gup
 
 # format fragments
 
-HASH='%C(white)%h'
-TIME='  %C(blue)%<(13)%ar'
-AUTHOR_EMAIL='  %C(blue)%<(20,trunc)%ae'
-REF='%C(green)%d'
-INDENT='%C(white)       '
-SUBJECT='  %C(cyan)%<(50,trunc)%s'
 
 # basic format without subject
-export GITLOGFORMAT="$INDENT $REF%n$HASH$TIME$AUTHOR_EMAIL%n$INDENT$SUBJECT"
-unset HASH TIME AUTHOR_EMAIL REF INDENT SUBJECT
+#unset HASH TIME AUTHOR_EMAIL REF INDENT SUBJECT
 
 # short git log version
-function gl() {
+function glog() {
+	INDENT='         '
+	REF='%C(green)%d'
+	TIME='%C(blue)%<(10)%ad'
+	SUBJECT='%C(reset)%<(50,trunc)%s'
+	AUTHOR_EMAIL='%C(blue)%>(20,trunc)%ae'
+	RESET='%C(reset)'
+	# 82						10   1 50 	   1 20
+	FORMAT="$INDENT $REF%n$TIME $SUBJECT $AUTHOR_EMAIL$RESET"
 	git log \
-		--pretty=format:"$GITLOGFORMAT" \
-		--date=relative \
+		--date=short \
+		--pretty=format:"$FORMAT" \
 		"$@"
+	echo; echo
 		#--graph \
+}; export -f glog
+
+function gl() {
+	glog "$@"
 }; export -f gl
 
 # historic git log version (added stat and summary)
 function ghis() {
+	INDENT='       '
+	REF='%C(green)%d'
+	HASH='%C(yellow)%h'
+	TIME='%C(reset)%ai %C(cyan)(%ar)'
+	AUTHOR_EMAIL='%C(reset)%ae %C(magenta)(%an)'
+	SUBJECT='%C(blue)%s'
+	BODY='%C(white)%b'
+	RESET='%C(reset)'
+	FORMAT="$INDENT $REF%n$HASH  $SUBJECT%n$INDENT  $TIME%n$INDENT  $AUTHOR_EMAIL%n$BODY$RESET"
 	# disable colored +/- from --stat
 	git \
 		-c color.diff.new=white \
 		-c color.diff.old=white \
 		log \
-		--pretty=format:"$GITLOGFORMAT" \
-		--date=relative \
+		--pretty=format:"$FORMAT" \
 		--stat \
 		--summary \
 		"$@"
+	echo; echo
 }; export -f ghis
 
 # 'lore' git log version
@@ -104,7 +119,7 @@ function gros() {
 # TODO: put this into shell script
 function gist() {
 	# how far back to start
-	START="HEAD~${1:-0}"
+	START="HEAD~${1:-1}"
 	# how far back to end
 	END="HEAD~${2:-0}"
 	git --no-pager diff --stat --summary $START $END
