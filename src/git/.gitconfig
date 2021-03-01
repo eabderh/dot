@@ -24,7 +24,7 @@
 	#interactive = auto
 #	diff = auto
 [color "diff"]
-	#meta = cyan
+	meta = blue
 	context = white
 	frag = white
 	new = yellow
