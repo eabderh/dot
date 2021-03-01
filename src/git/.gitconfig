@@ -1,20 +1,54 @@
+
+# options
+#------------------------------------------------------------------------------
+
 [user]
 	name = elias
 	email = elias@bytekite.io
 [core]
 	editor = vim
+[rerere]
+	enabled = true
+[push]
+	default = current
+
+
+
+# colors
+#------------------------------------------------------------------------------
+
 [color]
-	ui = auto
-	status = auto
-	branch = auto
-	interactive = auto
-	diff = auto
+	#ui = auto
+	#status = auto
+	#branch = auto
+	#interactive = auto
+#	diff = auto
 [color "diff"]
-	new = blue
+	#meta = cyan
+	context = white
+	frag = white
+	new = yellow
 	old = red
 [color "status"]
 	added = cyan
 	changed = green
+
+
+
+# redirects
+#------------------------------------------------------------------------------
+
+[url "git@github.com:eabderh/"]
+	insteadOf = https://github.com/eabderh/
+[url "git@code.james-solutions.ch:"]
+	insteadOf = https://code.james-solutions.ch/
+#[url "git@github.com:"]
+#	insteadOf = http://github.com/
+
+
+
+# alias
+#------------------------------------------------------------------------------
 
 # can't alias because of command to executable issue.
 # newer version of git supports aliases to a better degree.
@@ -29,17 +63,4 @@
 #	hist = 'log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'
 
 
-#[url "git@github.com:"]
-#	insteadOf = http://github.com/
-
-[url "git@github.com:eabderh/"]
-	insteadOf = https://github.com/eabderh/
-[url "git@code.james-solutions.ch:"]
-	insteadOf = https://code.james-solutions.ch/
-[rerere]
-	enabled = true
-
-[push]
-	default = current
-[log]
-	date = iso
+#------------------------------------------------------------------------------
