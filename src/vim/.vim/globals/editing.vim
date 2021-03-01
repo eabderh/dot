@@ -41,6 +41,9 @@ inoremap <F5> 	<C-R>=strftime("[%F %T %z %s]")<CR>
 " redo
 nnoremap U <C-R>
 
+" edit file (useful for updating file after external writes to file)
+nnoremap <silent> <leader>e :e<CR>
+
 
 
 " search & replace
