@@ -54,7 +54,7 @@ export GITLOGFORMAT="$INDENT $REF%n$HASH$TIME$AUTHOR_EMAIL%n$INDENT$SUBJECT"
 unset HASH TIME AUTHOR_EMAIL REF INDENT SUBJECT
 
 # short git log version
-function glog() {
+function gl() {
 	git log \
 		--pretty=format:"$GITLOGFORMAT" \
 		--date=relative \
@@ -63,7 +63,7 @@ function glog() {
 }; export -f glog
 
 # long git log version (added stat and summary)
-function glogs() {
+function glog() {
 	# disable colored +/- from --stat
 	git \
 		-c color.diff.new=white \
