@@ -45,7 +45,9 @@ set textwidth=0
 " list options
 " -----------------------------------------------------------------------------
 
-" turn off list mode (shows tabs, end-of-lines, etc)
+" map for toggling the list option (shows tabs, end-of-lines, etc)
+nnoremap <silent> 	<leader>l 	:set list!<CR>
+" turn off list mode at start
 set nolist
 " set chars shown with list option turned on
 set listchars=tab:»\ ,
