@@ -52,6 +52,7 @@ set nolist
 " set chars shown with list option turned on
 set listchars=tab:»\ ,
 set listchars+=eol:$,
+" warning: utf8 chars used below
 set listchars+=space:•,
 set listchars+=trail:•,
 "set listchars+=nbsp:.,
