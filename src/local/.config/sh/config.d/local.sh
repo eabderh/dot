@@ -1,3 +1,4 @@
 
-export PATH="$PATH:$HOME/.local/usr/bin"
+export LOCALROOT="$HOME/.local"
+export PATH="$PATH:$LOCALROOT/usr/bin"
 

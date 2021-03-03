@@ -1,5 +1,4 @@
 
-export LOCALROOT="$HOME/.local"
 
 # system
 export SHELL=/bin/bash
