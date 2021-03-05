@@ -1,5 +1,8 @@
 
-export NODE_ROOT="/usr/local/node"
+export NODE_VERSION="v14.15.5"
+export NODE_OS="linux"
+export NODE_ARCH="x64"
+export NODE_ROOT="$HOME/.local/usr/local/node"
 export NODE_LIB="$HOME/.local/usr/lib/node/node_modules"
 export NODE_PATH="node_modules:$NODE_LIB"
 

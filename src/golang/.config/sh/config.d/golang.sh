@@ -1,6 +1,8 @@
 
-
-export GOROOT="/usr/local/go"
+export GOVERSION="1.15.5"
+export GOOS="linux"
+export GOARCH="$(dpkg --print-architecture)"
+export GOROOT="$HOME/.local/usr/local/go"
 export GOPATH="$HOME/dev/src/go"
 export GO111MODULE=on
 export GOPRIVATE="git.bananalias.xyz/*"
