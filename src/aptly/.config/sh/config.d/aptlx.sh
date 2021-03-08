@@ -1,1 +1,1 @@
-export APTLX_ROOT="$LOCALROOT/etc/aptlx/build.d"
+export APTLX_ROOT="$HOME/dev/domains/aptlx"

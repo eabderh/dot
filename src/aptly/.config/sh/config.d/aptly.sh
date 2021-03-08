@@ -1,1 +1,1 @@
-export APTLY_ROOT="$LOCALROOT/var/lib/aptly"
+export APTLY_ROOT="$HOME/dev/domains/aptly"
