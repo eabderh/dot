@@ -55,12 +55,17 @@ function glog() {
 	AUTHOR_EMAIL='%C(blue)%>(20,trunc)%ae'
 	RESET='%C(reset)'
 	# 82						10   1 50 	   1 20
-	FORMAT="$INDENT $REF%n$TIME $SUBJECT $AUTHOR_EMAIL$RESET"
-	git log \
+	FORMAT="$INDENT $REF %n$TIME $SUBJECT $AUTHOR_EMAIL$RESET"
+	# turn on color; remove empty lines (including ansi escape codes) with sed
+	git \
+		log \
+		--color \
 		--date=short \
 		--pretty=format:"$FORMAT" \
-		"$@"
-	echo; echo
+		"$@" |
+		sed '/^\s*\x1b\[[0-9;]*m\s*$/d' |
+		less
+	#echo; echo
 		#--graph \
 }; export -f glog
 
