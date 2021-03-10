@@ -1,6 +1,6 @@
 
 #mkdir -p $HISTROOT
-export HISTROOT="$HOME/.local/var/bash/history.d"
+export HISTROOT="$HOME/dev/domains/bash/history.d"
 export HISTFILE="$HISTROOT/$(tty | sed -e 's;/;;g')"
 export HISTCONTROL=ignorespace:ignoredups:erasedups
 export HISTSIZE="1000"
