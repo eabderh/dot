@@ -4,3 +4,7 @@ GPG_KEYID="elias.abderhalden@james-solutions.ch"
 GPG_KEYRING="$HOME/.gnupg/pubring.kbx"
 QUERY_FILE="./query.list"
 REPO="local"
+
+SUBDOMAIN="deb"
+SRV="/srv/$SUBDOMAIN"
+URL="https://$SUBDOMAIN.bananalias.xyz"
