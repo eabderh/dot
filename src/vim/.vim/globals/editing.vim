@@ -51,6 +51,8 @@ nnoremap <silent> <leader>e :edit<CR>
 
 " replace all highlighted
 nnoremap <leader>r :%s///gc<left><left><left>
+" replace all highlighted in section
+vnoremap <leader>r :s///gc<left><left><left>
 " turn off incremental search results
 set noincsearch
 " turn on highlighting of searches
