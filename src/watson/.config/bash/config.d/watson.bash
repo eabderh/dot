@@ -27,8 +27,20 @@ function wlog() {
 function whis() {
 	ARGS="$@"
 	if [ $# -eq 0 ]; then
-		ARGS="--day"
+		#ARGS="-f $(date +%F)"
+		watson report --day
+		return 0
+		#ARGS="--day"
 	fi
-	watson report $ARGS
+	# TODO: watson prints via 'click' python library, which only prints colors
+	# when connected to a terminal:
+	# (https://click.palletsprojects.com/en/8.0.x/utils/#ansi-colors)
+	# to force it to use colors, we have to make watson think it is connected
+	# to a terminal instead of a pipe or other. 'less' messes up when the
+	# output is piped to it, so a temp file is used instead.
+	less -f <(
+		script --return --quiet -c "watson aggregate --no-pager $ARGS"
+		script --return --quiet -c "watson report --no-pager $ARGS"
+	)
 }
 
