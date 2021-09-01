@@ -38,9 +38,11 @@ function whis() {
 	# to force it to use colors, we have to make watson think it is connected
 	# to a terminal instead of a pipe or other. 'less' messes up when the
 	# output is piped to it, so a temp file is used instead.
-	less -f <(
-		script --return --quiet -c "watson aggregate --no-pager $ARGS"
-		script --return --quiet -c "watson report --no-pager $ARGS"
-	)
+	#less -f <(
+	watson aggregate --no-pager $ARGS
+	watson report --no-pager $ARGS
+		#script --return --quiet -c "watson aggregate --no-pager $ARGS"
+		#script --return --quiet -c "watson report --no-pager $ARGS"
+	#)
 }
 
