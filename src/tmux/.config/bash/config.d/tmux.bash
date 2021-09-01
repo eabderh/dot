@@ -15,6 +15,12 @@ alias tms='tmux new -s'
 alias tmls='tmux list-sessions'
 
 
+if [[ "$TMUX" != "" ]]; then
+	if [[ "$PROMPT_COMMAND_TMUX" = "" ]]; then
+		export PROMPT_COMMAND="tmux select-pane -T \$(pwd); $PROMPT_COMMAND"
+		export PROMPT_COMMAND_TMUX="true"
+	fi
+fi
 
 
 # tmuxp
