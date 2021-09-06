@@ -1,5 +1,6 @@
 export LC_CTYPE=C
 export LC_ALL=en_US.UTF-8
+export LC_LANG="$LC_ALL"
 export LC_ADDRESS="$LC_ALL"
 export LC_NAME="$LC_ALL"
 export LC_MONETARY="$LC_ALL"
