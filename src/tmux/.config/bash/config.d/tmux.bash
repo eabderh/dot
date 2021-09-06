@@ -16,10 +16,9 @@ alias tmls='tmux list-sessions'
 
 
 if [[ "$TMUX" != "" ]]; then
-	if [[ "$PROMPT_COMMAND_TMUX" = "" ]]; then
-		export PROMPT_COMMAND="tmux select-pane -T \$(pwd); $PROMPT_COMMAND"
-		export PROMPT_COMMAND_TMUX="true"
-	fi
+	TMUX_CMDS="tmux select-pane -T \"\$(pwd)\";"
+	TMUX_CMDS+="tmux rename-window -t\${TMUX_PANE} \"\$(basename \$(spwd))\";"
+	export PROMPT_COMMAND="${TMUX_CMDS}${PROMPT_COMMAND}"
 fi
 
 
