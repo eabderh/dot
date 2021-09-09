@@ -16,9 +16,29 @@ alias tmls='tmux list-sessions'
 
 
 if [[ "$TMUX" != "" ]]; then
-	TMUX_CMDS="tmux select-pane -T \"\$(pwd)\";"
-	TMUX_CMDS+="tmux rename-window -t\${TMUX_PANE} \"\$(basename \$(spwd))\";"
-	export PROMPT_COMMAND="${TMUX_CMDS}${PROMPT_COMMAND}"
+	function tmux_naming {
+		local STATUS=''
+		STATUS+="$(pwd)"
+
+		local GITBRANCH="$(git rev-parse --abbrev-ref HEAD 2>/dev/null)"
+		if [[ "$GITBRANCH" != "" ]]; then
+			if [[ "$(git status --porcelain)" != "" ]]; then
+				STATUS+=' ◇ '
+			else
+				STATUS+=' ◆ '
+			fi
+			STATUS+="$GITBRANCH"
+		fi
+		#STATUS="────⟨ $STATUS ⟩────"
+		STATUS="────[ $STATUS ]────"
+
+		tmux select-pane -T "$STATUS"
+		tmux rename-window -t${TMUX_PANE} "$(basename $(spwd))"
+	}
+	#TMUX_CMDS="tmux select-pane -T \"\$(pwd)\";"
+	#TMUX_CMDS+="tmux rename-window -t\${TMUX_PANE} \"\$(basename \$(spwd))\";"
+	#export PROMPT_COMMAND="${PROMPT_COMMAND}${TMUX_CMDS}"
+	export PROMPT_COMMAND="${PROMPT_COMMAND}tmux_naming;"
 fi
 
 
