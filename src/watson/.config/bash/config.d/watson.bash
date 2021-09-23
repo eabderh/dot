@@ -12,7 +12,7 @@ function wt() {
 	watson start "$@"
 }
 
-function wedit() {
+function we() {
 	watson edit "$@"
 }
 
