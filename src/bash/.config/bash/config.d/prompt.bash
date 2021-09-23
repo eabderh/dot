@@ -65,13 +65,13 @@ function block_prompt {
 	local PROMPT_PREPEND='◼'
 
 	if [[ "$USER" != "elias" ]]; then
-		PROMPT+="\[$(tput setaf 8)$(tput setab 238)\]"
+		PROMPT+="\[$(tput setaf 8)$(tput setab 237)\]"
 		PROMPT+=" $USER "
 		PROMPT+="\[$(tput sgr0)\]"
 	fi
 
 	if [[ "$(pwd)" != "$HOME" ]]; then
-		PROMPT+="\[$(tput setaf 8)$(tput setab 237)\]"
+		PROMPT+="\[$(tput setaf 8)$(tput setab 236)\]"
 		PROMPT+=" $(spwd 2> /dev/null) "
 		PROMPT+="\[$(tput sgr0)\]"
 	fi
