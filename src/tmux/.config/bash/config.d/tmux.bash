@@ -30,7 +30,9 @@ if [[ "$TMUX" != "" ]]; then
 			STATUS+="$GITBRANCH"
 		fi
 		#STATUS="────⟨ $STATUS ⟩────"
-		STATUS="────[ $STATUS ]────"
+		#STATUS="━━━━━━━━━━ $STATUS "
+		STATUS="━━━━━━━━━━━━━━━━ $STATUS "
+		#STATUS=" $STATUS "
 
 		tmux select-pane -T "$STATUS"
 		tmux rename-window -t${TMUX_PANE} "$(basename $(spwd))"
