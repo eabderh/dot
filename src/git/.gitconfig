@@ -67,7 +67,7 @@
 
 [credential "https://github.com/"]
 	username = eabderh
-	helper = "!git-credential-test"
-	#helper = "!f() { test \"$1\" = get && echo \"password=$(pass show personal/legals/accounts/github/eabderh/token)\"; }; f"
+	#helper = "!git-credential-test"
+	helper = "!f() { test \"$1\" = get && echo \"password=$(pass show personal/legals/accounts/github/eabderh/token)\"; }; f"
 
 #------------------------------------------------------------------------------
