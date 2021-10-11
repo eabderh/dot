@@ -38,10 +38,8 @@
 # redirects
 #------------------------------------------------------------------------------
 
-[url "git@github.com:eabderh/"]
-	insteadOf = https://github.com/eabderh/
-[url "git@code.james-solutions.ch:"]
-	insteadOf = https://code.james-solutions.ch/
+#[url "https://$GITHUB_TOKEN@github.com/"]
+#	insteadOf = https://github.com/
 #[url "git@github.com:"]
 #	insteadOf = http://github.com/
 
@@ -62,5 +60,14 @@
 #	br = branch
 #	hist = 'log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'
 
+
+
+# credentials
+#------------------------------------------------------------------------------
+
+[credential "https://github.com/"]
+	username = eabderh
+	helper = "!git-credential-test"
+	#helper = "!f() { test \"$1\" = get && echo \"password=$(pass show personal/legals/accounts/github/eabderh/token)\"; }; f"
 
 #------------------------------------------------------------------------------

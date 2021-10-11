@@ -148,4 +148,15 @@ function gsubup() {
 }; export -f gsubup
 
 
+# credentials
+#------------------------------------------------------------------------------
+
+
+# submodules
+function git-credential-test() {
+	echo "git-credential-test $@" 1>&2
+	cat /dev/stdin 1>&2
+}; export -f git-credential-test
+
+
 
