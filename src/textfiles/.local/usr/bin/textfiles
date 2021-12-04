@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if [[ "$@" == "" ]]; then
+	paths=( * )
+else
+	paths=( "$@" )
+fi
+
+delim='@'
+filetype='text/.*'
+charset='.*'
+criteria="${delim}\\s*${filetype}; charset=${charset}\$"
+
+for p in "${paths[@]}"; do
+	file --separator "$delim" --mime "$(realpath "$p")"
+done \
+	| grep -E "$criteria" \
+	| sed -e 's:'"$criteria"'::g' \
+	| sort -u # remove duplicates when two symlinks point to same file
+
+
