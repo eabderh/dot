@@ -73,30 +73,54 @@ function gupdate() 	{ git update-server-info "$@" ;}; export -f gupdate
 # format fragments
 
 
-# basic format without subject
-#unset HASH TIME AUTHOR_EMAIL REF INDENT SUBJECT
+function ggraph() {
+	local indent='         ' # 11
+	local ref='%C(green)%d'
+	local time='%C(yellow)%<(10)%ad'
+	#local hash='%C(yellow)%h'
+	#local time='%C(blue)%<(10)%ad'
+	local subject='%C(reset)%<(60,trunc)%s'
+	local author_email='%C(blue)%<(18,trunc)%ae'
+	local reset='%C(reset)'
+	local format="${time}${ref}%n${author_email} ${subject}${reset}%n"
+	# turn on color; remove empty lines (including ansi escape codes) with sed
+	git \
+		-c core.pager='less -S' \
+		log \
+		--color \
+		--date=short \
+		--pretty=format:"$format" \
+		--graph \
+		"$@"
+		#sed '/^\s*\x1b\[[0-9;]*m\s*$/d' |
+		#less
+	#echo; echo
+}; export -f ggraph
+
+function gg() {
+	ggraph "$@"
+}; export -f gg
 
 # short git log version
 function glog() {
-	INDENT='         '
-	REF='%C(green)%d'
-	TIME='%C(blue)%<(10)%ad'
-	SUBJECT='%C(reset)%<(50,trunc)%s'
-	AUTHOR_EMAIL='%C(blue)%>(20,trunc)%ae'
-	RESET='%C(reset)'
-	# 82						10   1 50 	   1 20
-	FORMAT="$INDENT $REF %n$TIME $SUBJECT $AUTHOR_EMAIL$RESET"
+	local indent='         '
+	local ref='%C(green)%d'
+	local time='%C(yellow)%<(10)%ad'
+	local subject='%C(reset)%<(50,trunc)%s'
+	local author_email='%C(blue)%<(18,trunc)%ae'
+	local reset='%C(reset)'
+	local format="${time}${ref}%n${author_email} ${subject}${reset}%n"
 	# turn on color; remove empty lines (including ansi escape codes) with sed
 	git \
 		log \
 		--color \
 		--date=short \
-		--pretty=format:"$FORMAT" \
-		#"$@" |
+		--pretty=format:"$format" \
+		"$@"
 		#sed '/^\s*\x1b\[[0-9;]*m\s*$/d' |
 		#less
-	#echo; echo
 		#--graph \
+	#echo; echo
 }; export -f glog
 
 function gl() {
@@ -105,21 +129,21 @@ function gl() {
 
 # historic git log version (added stat and summary)
 function ghis() {
-	INDENT='       '
-	REF='%C(green)%d'
-	HASH='%C(yellow)%h'
-	TIME='%C(reset)%ai %C(cyan)(%ar)'
-	AUTHOR_EMAIL='%C(reset)%ae %C(magenta)(%an)'
-	SUBJECT='%C(blue)%s'
-	BODY='%C(white)%b'
-	RESET='%C(reset)'
-	FORMAT="$INDENT $REF%n$HASH  $SUBJECT%n$INDENT  $TIME%n$INDENT  $AUTHOR_EMAIL%n$BODY$RESET"
+	local indent='       '
+	local ref='%C(green)%d'
+	local hash='%C(yellow)%h'
+	local time='%C(reset)%ai %C(cyan)(%ar)'
+	local author_email='%C(reset)%ae %C(magenta)(%an)'
+	local subject='%C(blue)%s'
+	local body='%C(white)%b'
+	local reset='%C(reset)'
+	local format="${indent} ${ref}%n${hash}  ${subject}%n${indent}  ${time}%n${indent}  ${author_email}%n${body}${reset}"
 	# disable colored +/- from --stat
 	git \
 		-c color.diff.new=white \
 		-c color.diff.old=white \
 		log \
-		--pretty=format:"$FORMAT" \
+		--pretty=format:"$format" \
 		--stat \
 		--summary \
 		"$@"
@@ -137,6 +161,8 @@ function glore() {
 		--abbrev-commit "$@"
 		#--graph \
 }; export -f glore
+
+
 
 
 
