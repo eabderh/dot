@@ -30,18 +30,12 @@
 	new = yellow
 	old = red
 [color "status"]
+	header = blue
+	localBranch = blue
+	remoteBranch = cyan
 	added = cyan
 	changed = green
 
-
-
-# redirects
-#------------------------------------------------------------------------------
-
-#[url "https://$GITHUB_TOKEN@github.com/"]
-#	insteadOf = https://github.com/
-#[url "git@github.com:"]
-#	insteadOf = http://github.com/
 
 
 
@@ -65,9 +59,15 @@
 # credentials
 #------------------------------------------------------------------------------
 
-[credential "https://github.com/"]
-	username = eabderh
-	#helper = "!git-credential-test"
-	helper = "!f() { test \"$1\" = get && echo \"password=$(pass show personal/legals/accounts/github/eabderh/token)\"; }; f"
+#[credential "https://github.com/"]
+#	username = eabderh
+#	#helper = "!git-credential-test"
+#	helper = "!f() { test \"$1\" = get && echo \"password=$(pass show personal/legals/accounts/github/eabderh/token)\"; }; f"
+
+
+# cache credentials with a timeout of 24h
+[credential]
+	helper = "cache --timeout=86400"
+
 
 #------------------------------------------------------------------------------
