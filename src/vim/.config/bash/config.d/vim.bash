@@ -1,5 +1,5 @@
 
-alias vimf='vim-text-files'
-alias vimt='vim-type-files'
+#alias vimf='vim-text-files'
+#alias vimt='vim-type-files'
 
 
