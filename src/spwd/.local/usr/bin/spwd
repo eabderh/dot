@@ -1,0 +1,13 @@
+#!/bin/bash
+
+l=20
+MPATH=$(pwd | sed "s:$HOME:\~:")
+#MPATH="${PWD/$HOME/\~}"
+if [ ${#MPATH} -ge $l ]; then
+	REDUCED=$(echo -n $MPATH | tail -c $l)
+	#echo $REDUCED
+	#REDUCED=${MPATH:-$l}
+	MPATH="...$REDUCED"
+fi
+echo $MPATH
+
