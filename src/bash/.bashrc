@@ -27,9 +27,10 @@ export PROMPT_COMMAND=""
 # sourcing
 #------------------------------------------------------------------------------
 
+source /etc/bash_completion
 source $HOME/.config/sh/config.bash
 source $HOME/.config/bash/config.bash
-source /etc/bash_completion
 
 
 #------------------------------------------------------------------------------
+. "$HOME/.cargo/env"

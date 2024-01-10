@@ -19,3 +19,4 @@ fi
 #export LANG=elias.ansix3elias
 #export LC_CTYPE=elias.ansix3elias
 
+. "$HOME/.cargo/env"
