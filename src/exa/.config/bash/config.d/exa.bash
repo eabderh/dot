@@ -42,17 +42,35 @@ export EXA_COLORS
 #------------------------------------------------------------------------------
 
 function xee() {
-	ll 		--tree \
+	exa 	--group-directories-first \
+			--sort=Ext \
+			--color=always \
+			--long \
+			--group \
+			--git \
+			--links \
+			--time-style=iso \
 			--ignore-glob=.git \
+			--tree \
+			--git-ignore \
 			"$@"
+			#--all \
 }
 export -f xee
 
 function tree() {
 	LEVEL=${1:-2}
-	ll 		--tree \
-			--ignore-glob=.git \
+	exa 	--group-directories-first \
+			--sort=Ext \
+			--color=always \
+			--long \
+			--group \
+			--git \
+			--links \
+			--time-style=iso \
+			--tree \
 			--level $LEVEL
+			#--ignore-glob=.git \
 }
 export -f tree
 
