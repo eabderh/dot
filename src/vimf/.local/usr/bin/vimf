@@ -2,9 +2,13 @@
 
 # preserve paths with spaces
 args=( "$@" )
-# run textfiles with args
-# ifne exits if there's no files
-# use xargs to combine output paths into one command with $EDITOR
-textfiles "${args[@]}" | ifne xargs -d '\n' --open-tty "$EDITOR"
 
+# filter all files for only text files, change multiline to single line
+files="$(textfiles "${args[@]}" | tr '\n' ' ')"
+
+if [[ "$files" == "" ]]; then
+	exit 0
+fi
+
+exec $EDITOR $files
 
