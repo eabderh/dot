@@ -1,14 +1,10 @@
-
 session_name: dot
 windows:
-- window_name: files
-  layout: even-vertical
+- focus: 'true'
+  layout: 5d98,152x34,0,0,19
+  options: {}
   panes:
-  - shell_command:
-    - cd ~/dev/dot
-    - gs
-  - shell_command:
-    - cd ~/dev/dot/dist
-    - ll
-
-
+  - focus: 'true'
+    shell_command: python3
+  start_directory: /home/taaabel2/dot/src
+  window_name: src

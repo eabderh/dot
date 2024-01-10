@@ -20,27 +20,47 @@ function tmux_process_tree {
 }; export -f tmux_process_tree
 
 
+#function tmux_join_window {
+#	echo 'tyest'
+#	return 0
+#	markedwindow="$(tmux list-panes -a \
+#		-F '#{pane_marked} #{session_name}:#{window_index}' \
+#		| sed -n 's:1 \(.*\)$:\1:p')"
+#	if [ "$markedwindow" == "" ]; then
+#		return 0
+#	fi
+#	tmux move-window -d -s "$markedwindow"
+#}; export -f tmux_join_window
+
+
 if [[ "$TMUX" != "" ]]; then
 	function tmux_naming {
 		local STATUS=''
 		STATUS+="$(pwd)"
 
+		local length=58
 		local GITBRANCH="$(git rev-parse --abbrev-ref HEAD 2>/dev/null)"
 		if [[ "$GITBRANCH" != "" ]]; then
-			if [[ "$(git status --porcelain)" != "" ]]; then
-				STATUS+=' ◇ '
-			else
-				STATUS+=' ◆ '
-			fi
-			STATUS+="$GITBRANCH"
+			#if [[ "$(git status --porcelain)" != "" ]]; then
+			#	#STATUS+=' ◇ '
+			#	STATUS+=' ◆ '
+			#else
+			#	STATUS+=' ◆ '
+			#fi
+			STATUS+=" ▌ "
+			STATUS+="@$GITBRANCH"
+			length=60
 		fi
 		#STATUS="────⟨ $STATUS ⟩────"
 		#STATUS="━━━━━━━━━━ $STATUS "
+		STATUS="$(echo "$STATUS" | tail -c $length )"
+		STATUS="$(printf "%${length}s" "$STATUS")"
 		#STATUS="━━━━━━━━━━━━━━━━ $STATUS "
 		STATUS=" $STATUS "
 
 		tmux select-pane -T "$STATUS"
-		tmux rename-window -t${TMUX_PANE} "$(basename $(spwd))"
+		pwd="$( pwd | sed "s:$HOME:\~:" | xargs basename | tail -c 10)"
+		tmux rename-window -t${TMUX_PANE} -- "${pwd}"
 	}
 	#TMUX_CMDS="tmux select-pane -T \"\$(pwd)\";"
 	#TMUX_CMDS+="tmux rename-window -t\${TMUX_PANE} \"\$(basename \$(spwd))\";"
@@ -59,7 +79,6 @@ if [[ "$TMUX" != "" ]]; then
 	}; export -f tmuxctrla
 
 fi
-
 
 
 # tmuxp
