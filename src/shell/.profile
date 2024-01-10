@@ -12,3 +12,4 @@
 if [ ! -n "$BASH_VERSION" ]; then
 	echo "Not using bash"
 fi
+. "$HOME/.cargo/env"

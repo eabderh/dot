@@ -5,7 +5,9 @@ set menu-complete-display-prefix on
 
 
 set keymap vi-command
-"p": "i !!\n"
+#"mp": paste-from-clipboard
+#"mp": "echo test"
+#"p": "i !!\n"
 	# previous command
 "t": kill-whole-line
 "z": "ti"
@@ -19,6 +21,5 @@ set keymap vi-command
 
 set keymap vi-insert
 "jk": "\e"
-
 
 
