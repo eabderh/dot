@@ -1,7 +1,7 @@
 
 
 
-" modes
+" modes {}
 " -----------------------------------------------------------------------------
 
 " escape insert mode
@@ -25,9 +25,9 @@ nnoremap t dd
 " copy line
 nnoremap y yy
 " make paragraph from one line (wrap)
-nnoremap <silent> 	<leader>p 	gqgq
+nnoremap <silent> 	<leader>z 	gqgq
 " make paragraph from multiple adjacent lines (wrap)
-nnoremap <silent> 	<leader>P 	gqap
+nnoremap <silent> 	<leader>: 	gqap
 
 
 

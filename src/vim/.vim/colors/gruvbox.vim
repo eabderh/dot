@@ -281,11 +281,13 @@ if exists('g:gruvbox_hls_cursor')
 endif
 
 let s:number_column = s:none
+"let s:number_column = s:gb.dark0_hard
 if exists('g:gruvbox_number_column')
   let s:number_column = get(s:gb, g:gruvbox_number_column)
 endif
 
-let s:sign_column = s:bg1
+let s:sign_column = s:bg0
+"let s:sign_column = s:gb.dark0_soft
 
 if exists('g:gitgutter_override_sign_column_highlight') &&
       \ g:gitgutter_override_sign_column_highlight == 1
@@ -423,6 +425,11 @@ call s:HL('GruvboxAquaBold', s:aqua, s:none, s:bold)
 call s:HL('GruvboxOrange', s:orange)
 call s:HL('GruvboxOrangeBold', s:orange, s:none, s:bold)
 
+call s:HL('GruvboxGreySign', s:bg4, s:sign_column, s:invert_signs)
+call s:HL('GruvboxGreySignBlock', s:gb.dark1, s:gb.dark1, s:invert_signs)
+call s:HL('GruvboxDarkSignBlock', s:gb.dark0_soft, s:gb.dark0_soft, s:invert_signs)
+"call s:HL('GruvboxGreySignInvert', s:sign_column, s:green, s:invert_signs)
+
 call s:HL('GruvboxRedSign', s:red, s:sign_column, s:invert_signs)
 call s:HL('GruvboxGreenSign', s:green, s:sign_column, s:invert_signs)
 call s:HL('GruvboxYellowSign', s:yellow, s:sign_column, s:invert_signs)
@@ -486,8 +493,14 @@ call s:HL('IncSearch', s:hls_cursor, s:bg0, s:inverse)
 
 call s:HL('Underlined', s:blue, s:none, s:underline)
 
-call s:HL('StatusLine',   s:bg4, s:bg0, s:bold . s:inverse)
-call s:HL('StatusLineNC', s:bg2, s:fg4, s:bold . s:inverse)
+call s:HL('StatusLine', s:bg2, s:bg0, s:inverse)
+"call s:HL('StatusLine', s:bg1, s:bg4, s:inverse)
+call s:HL('StatusLineDark', s:bg1, s:bg4, s:inverse)
+"call s:HL('StatusLine', s:bg3, s:bg0, s:inverse)
+"call s:HL('StatusLineDark', s:bg2, s:bg0, s:inverse)
+"call s:HL('StatusLine', s:bg0, s:bg3, s:inverse)
+"call s:HL('StatusLine', s:bg3, s:bg0, s:bold . s:inverse)
+"call s:HL('StatusLineNC', s:bg2, s:fg4, s:bold . s:inverse)
 
 " The column separating vertically split windows
 call s:HL('VertSplit', s:fg4, s:vert_split)
@@ -725,10 +738,14 @@ let g:niji_light_colours = g:rbpt_colorpairs
 "}}}
 " GitGutter: {{{
 
-hi! link GitGutterAdd GruvboxGreenSign
-hi! link GitGutterChange GruvboxAquaSign
-hi! link GitGutterDelete GruvboxRedSign
-hi! link GitGutterChangeDelete GruvboxAquaSign
+"hi! link GitGutterAdd GruvboxGreenSign
+"hi! link GitGutterChange GruvboxAquaSign
+"hi! link GitGutterDelete GruvboxRedSign
+"hi! link GitGutterChangeDelete GruvboxAquaSign
+hi! link GitGutterAdd GruvboxDarkSignBlock
+hi! link GitGutterChange GruvboxDarkSignBlock
+hi! link GitGutterDelete GruvboxGreySign
+hi! link GitGutterChangeDelete GruvboxGreySignBlock
 
 " }}}
 " GitCommit: "{{{

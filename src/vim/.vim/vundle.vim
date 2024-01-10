@@ -12,6 +12,8 @@ Plugin 'gmarik/Vundle.vim'
 
 
 
+
+
 " application plugins
 
 " autocomplete
@@ -33,6 +35,11 @@ Plugin 'bling/vim-bufferline'
 Plugin 'Shougo/unite.vim'
 " replace netrw file explorer with unite.vim plugin
 Plugin 'Shougo/vimfiler.vim'
+" the one, the only
+Plugin 'preservim/nerdtree'
+" lets try
+"Plugin 'lambdalisue/fern.vim'
+
 
 
 
@@ -58,9 +65,25 @@ Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'posva/vim-vue'
 " ejs filetype
 "Plugin 'nikvdp/ejs-syntax'
+" hcl filetype
+Plugin 'jvirtanen/vim-hcl'
+" dockerfile filetype
+Plugin 'ekalinin/Dockerfile.vim'
+" cisco filetype
+Plugin 'momota/cisco.vim'
+" cue filetype
+Plugin 'jjo/vim-cue'
+" jenkinsfile filetype
+Plugin 'martinda/Jenkinsfile-vim-syntax'
+" typescript filetype
+Plugin 'leafgarland/typescript-vim.git'
+" java auto import
+Plugin 'rustushki/JavaImp.vim'
 
 
 
+" git plugins
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()
 filetype plugin indent on

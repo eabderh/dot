@@ -18,8 +18,6 @@ set scrolloff=10
 set number
 " highlight current line
 set cursorline
-" always show statusbar
-set laststatus=2
 " wrap long lines instead of letting them go off screen (newline insertion
 " optional)
 set wrap

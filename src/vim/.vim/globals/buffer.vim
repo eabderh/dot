@@ -10,7 +10,9 @@ nnoremap <silent> 	<leader>q 		:qa!<CR>
 " remove buffer
 nnoremap <silent> 	<leader>t 		:bd<CR>
 nnoremap <silent> 	<leader>dd 		:bd<CR>
-
+nnoremap <silent> 	<leader>DD 		:bd!<CR>
+" reload buffer
+nnoremap <silent> 	<leader>E 		:e!<CR>
 
 " allow moving to next buffer without saving
 set hidden

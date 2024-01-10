@@ -3,7 +3,7 @@
 "Plugin 'Shougo/vimfiler.vim'
 
 " replace netrw
-let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_as_default_explorer = 0
 call vimfiler#custom#profile('default', 'context', {
 	\ 'explorer' : 1,
 	\ 'safe' : 0,
