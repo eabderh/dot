@@ -1,13 +1,18 @@
 #!/bin/bash
-
-l=20
-MPATH=$(pwd | sed "s:$HOME:\~:")
-#MPATH="${PWD/$HOME/\~}"
-if [ ${#MPATH} -ge $l ]; then
-	REDUCED=$(echo -n $MPATH | tail -c $l)
-	#echo $REDUCED
-	#REDUCED=${MPATH:-$l}
-	MPATH="...$REDUCED"
+length=20
+if [ "$1" != "" ]; then
+	length="$1"
 fi
-echo $MPATH
+#mpath="$(printf "%${length}s" "$(pwd)" | sed "s:$HOME:\~:" )"
+mpath="$(pwd \
+	| sed "s:$HOME:\~:" \
+	| tail -c $length \
+	| xargs printf "%${length}s"
+)"
+#if [ ${#mpath} -ge $length ]; then
+#	mpath="$(echo -n "$mpath" | tail -c $length)"
+#fi
+#mpath="$(printf "%${length}s" "$mpath")"
+echo "$mpath"
+exit 0
 
