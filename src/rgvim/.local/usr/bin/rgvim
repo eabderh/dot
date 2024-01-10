@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# first item in args
+pattern="$1"
+
+files="$(rg "$@" --files-with-matches)"
+
+if [[ "$files" == "" ]]; then
+	exit 0
+fi
+
+exec vim -c "/\\v${pattern}" $files
+
+
