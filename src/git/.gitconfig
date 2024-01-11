@@ -3,15 +3,19 @@
 #------------------------------------------------------------------------------
 
 [user]
-	name = elias
-	email = elias@bytekite.io
+	name = Abderhalden Elias, INI-DOS-BNC-BCD
+	email = elias.abderhalden@swisscom.com
 [core]
 	editor = vim
+	autocrlf = false
 [rerere]
 	enabled = true
 [push]
 	default = current
-
+[diff]
+	tool = vimdiff
+[init]
+	defaultBranch = main
 
 
 # colors
@@ -65,9 +69,18 @@
 #	helper = "!f() { test \"$1\" = get && echo \"password=$(pass show personal/legals/accounts/github/eabderh/token)\"; }; f"
 
 
-# cache credentials with a timeout of 24h
-[credential]
-	helper = "cache --timeout=86400"
+## # cache credentials with a timeout of 24h
+## [credential]
+## 	helper = "cache --timeout=86400"
 
 
 #------------------------------------------------------------------------------
+
+[credential]
+	helper = store
+
+#[credential "https://git.swisscom.com"]
+#	helper = store
+#	# --file ~/.git-credentials
+
+

@@ -145,6 +145,8 @@ function gupdate() 	{ git update-server-info "$@" ;}; export -f gupdate
 # git log functions
 #------------------------------------------------------------------------------
 
+# format fragments
+
 
 function ggraph() {
 	local indent='         ' # 11
@@ -165,6 +167,9 @@ function ggraph() {
 		--pretty=format:"$format" \
 		--graph \
 		"$@"
+		#sed '/^\s*\x1b\[[0-9;]*m\s*$/d' |
+		#less
+	#echo; echo
 }; export -f ggraph
 
 function gg() {
@@ -195,6 +200,10 @@ function glog() {
 		--date=short \
 		--pretty=format:"$format" \
 		"$@"
+		#sed '/^\s*\x1b\[[0-9;]*m\s*$/d' |
+		#less
+		#--graph \
+	#echo; echo
 }; export -f glog
 
 function gl() {
@@ -245,8 +254,15 @@ function glore() {
 
 # git gros - add, commit, push (named so because it isn't the best shortcut)
 function gros() {
+	#if [ "$1" == "" ]; then
+	#	echo 'commit message missing'
+	#	return 1
+	#fi
 	gaddu
 	gcomd $@
+	#git add --update
+	#git commit --message="$1"
+	#git push
 }; export -f gros
 
 
@@ -282,6 +298,15 @@ function grev() {
 	git rev-list --left-right --count "$@"
 }; export -f grev
 
+## credentials
 ##------------------------------------------------------------------------------
+#
+#
+## submodules
+#function git-credential-test() {
+#	echo "git-credential-test $@" 1>&2
+#	cat /dev/stdin 1>&2
+#}; export -f git-credential-test
+
 
 
