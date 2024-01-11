@@ -4,7 +4,7 @@ export GOOS="linux"
 export GOARCH="$(dpkg --print-architecture)"
 #export GOROOT="/usr/lib/go-1.16"
 #export GOROOT="$HOME/dev/domains/golang"
-export GOPATH="$HOME/dev/src/go"
+export GOPATH="$HOME/dev/golang"
 export GO111MODULE=on
 #export GOPRIVATE="git.bananalias.xyz/*"
 
